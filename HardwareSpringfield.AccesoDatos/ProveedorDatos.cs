@@ -35,7 +35,7 @@ namespace HardwareSpringfield.AccesoDatos
         {
             NameValueCollection obj = ReverseMap(proveedor); //serializacion -> json
 
-            string json = WebHelper.Post("cliente", obj);
+            string json = WebHelper.Post("proveedores", obj);
 
             TransactionResult lst = JsonConvert.DeserializeObject<TransactionResult>(json);
 
@@ -46,7 +46,7 @@ namespace HardwareSpringfield.AccesoDatos
         {
             NameValueCollection obj = ReverseMap(proveedor);
 
-            string json = WebHelper.Put("cliente", obj);
+            string json = WebHelper.Put("proveedores", obj);
 
             TransactionResult lst = JsonConvert.DeserializeObject<TransactionResult>(json);
 
