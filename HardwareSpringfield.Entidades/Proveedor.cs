@@ -6,37 +6,31 @@ using System.Threading.Tasks;
 
 namespace HardwareSpringfield.Entidades
 {
-    public class Proveedor
+    public class Proveedor : Persona
     {
         // ATRIBUTOS     
         private int _codigo;
-        private string _razonSocial;
         private List<Producto> _productos;
-        private string _telefono;
-        private string _email;
-        private string _direccion;
+        private string _cuit;
 
 
         // PROPIEDADES      
         public int Codigo { get => _codigo; set => _codigo = value; }
-        public string RazonSocial { get => _razonSocial; set => _razonSocial = value; }
         public List<Producto> Productos { get => _productos; set => _productos = value; }
-        public string Telefono { get => _telefono; set => _telefono = value; }
-        public string Email { get => _email; set => _email = value; }
-        public string Direccion { get => _direccion; set => _direccion = value; }
-
+        public string Cuit { get => _cuit; set => _cuit = value; }
+   
 
 
         // CONSTRUCTOR
-        public Proveedor(int codigo, string razonSocial, string telefono, string email, string direccion)
+        public Proveedor(int codigo, string nombre, string apellido, string cuit, string email, DateTime fechaNacimiento) : base(nombre, apellido, email, fechaNacimiento)
         {
             Codigo = codigo;
-            RazonSocial = razonSocial;
+            Nombre = nombre;
+            Apellido = apellido;
+            FechaNacimiento = FechaNacimiento;
             Productos = new List<Producto>();
-            Telefono = telefono;
+            Cuit = cuit;
             Email = email;
-            Direccion = direccion;
-
         }
     }
 }
