@@ -1,0 +1,6 @@
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.Negocio\bin\Debug\HardwareSpringfield.Negocio.dll
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.Negocio\bin\Debug\HardwareSpringfield.Negocio.pdb
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.Negocio\obj\Debug\HardwareSpringfield.Negocio.csproj.AssemblyReference.cache
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.Negocio\obj\Debug\HardwareSpringfield.Negocio.csproj.CoreCompileInputs.cache
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.Negocio\obj\Debug\HardwareSpringfield.Negocio.dll
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.Negocio\obj\Debug\HardwareSpringfield.Negocio.pdb

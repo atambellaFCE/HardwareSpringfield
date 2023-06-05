@@ -1,0 +1,11 @@
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.AccesoDatos\bin\Debug\HardwareSpringfield.AccesoDatos.dll
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.AccesoDatos\bin\Debug\HardwareSpringfield.AccesoDatos.pdb
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.AccesoDatos\bin\Debug\HardwareSpringfield.Entidades.dll
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.AccesoDatos\bin\Debug\Newtonsoft.Json.dll
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.AccesoDatos\bin\Debug\HardwareSpringfield.Entidades.pdb
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.AccesoDatos\bin\Debug\Newtonsoft.Json.xml
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.AccesoDatos\obj\Debug\HardwareSpringfield.AccesoDatos.csproj.AssemblyReference.cache
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.AccesoDatos\obj\Debug\HardwareSpringfield.AccesoDatos.csproj.CoreCompileInputs.cache
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.AccesoDatos\obj\Debug\HardwareSpringfield.AccesoDatos.csproj.CopyComplete
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.AccesoDatos\obj\Debug\HardwareSpringfield.AccesoDatos.dll
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.AccesoDatos\obj\Debug\HardwareSpringfield.AccesoDatos.pdb

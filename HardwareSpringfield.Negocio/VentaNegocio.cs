@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HardwareSpringfield.Negocio
 {
-    public class Class1
+    public class VentaNegocio
     {
     }
 }
