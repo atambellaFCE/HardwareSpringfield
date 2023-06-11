@@ -9,25 +9,36 @@ namespace HardwareSpringfield.Entidades
     public class Producto
     {
         // ATRIBUTOS     
-        private int _codigo;
-        private string _descripcion;
+        private int _id;
+        private string _nombre;
         private int _stock;
         private double _precio;
+        private Proveedor _proveedor;
+        private int _usuario;
+        private DateTime _fechaAlta;
+
 
 
         // PROPIEDADES      
-        public int Codigo { get => _codigo; set => _codigo = value; }
-        public string Descripcion { get => _descripcion; set => _descripcion = value; }
+        public int Id { get => _id; set => _id = value; }
+        public string Nombre { get => _nombre; set => _nombre = value; }
         public int Stock { get => _stock; set => _stock = value; }
         public double Precio { get => _precio; set => _precio = value; }
+        public Proveedor Proveedor { get => _proveedor; set => _proveedor = value; }
+        public int Usuario { get => _usuario; set => _usuario = value; }
+        public DateTime FechaAlta { get => _fechaAlta; set => _fechaAlta = value; }
 
         // CONSTRUCTOR
-        public Producto(int codigo, string descripcion, int stock, double precio)
+        public Producto(string nombre, int stock, double precio, Proveedor proveedor)
         {
-            Codigo = codigo;
-            Descripcion = descripcion;
+            Id = 1;
+            Nombre = nombre;
             Stock = stock;
             Precio = precio;
+            Proveedor = proveedor;
+            FechaAlta = DateTime.Now;
+            Usuario = 889454;
+
         }
 
     }

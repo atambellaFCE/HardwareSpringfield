@@ -5,3 +5,12 @@ C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.Con
 C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.Consola\obj\Debug\HardwareSpringfield.Consola.csproj.CoreCompileInputs.cache
 C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.Consola\obj\Debug\HardwareSpringfield.Consola.exe
 C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.Consola\obj\Debug\HardwareSpringfield.Consola.pdb
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.Consola\bin\Debug\HardwareSpringfield.Entidades.dll
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.Consola\bin\Debug\HardwareSpringfield.Negocio.dll
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.Consola\bin\Debug\HardwareSpringfield.AccesoDatos.dll
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.Consola\bin\Debug\Newtonsoft.Json.dll
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.Consola\bin\Debug\HardwareSpringfield.Entidades.pdb
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.Consola\bin\Debug\HardwareSpringfield.Negocio.pdb
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.Consola\bin\Debug\HardwareSpringfield.AccesoDatos.pdb
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.Consola\bin\Debug\Newtonsoft.Json.xml
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.Consola\obj\Debug\HardwareSpringfield.Consola.csproj.CopyComplete

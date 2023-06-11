@@ -49,5 +49,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HardwareSpringfield.Entidades\HardwareSpringfield.Entidades.csproj">
+      <Project>{11AB1FC9-17B8-410A-8F8E-60EC5F257DE2}</Project>
+      <Name>HardwareSpringfield.Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HardwareSpringfield.Negocio\HardwareSpringfield.Negocio.csproj">
+      <Project>{E58992AF-9EE4-4629-BFE9-50B413E3AF95}</Project>
+      <Name>HardwareSpringfield.Negocio</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -41,10 +41,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClienteNegocio.cs" />
     <Compile Include="VentaNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProductoNegocio.cs" />
     <Compile Include="ProveedorNegocio.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HardwareSpringfield.AccesoDatos\HardwareSpringfield.AccesoDatos.csproj">
+      <Project>{992F197A-99E2-4FAC-A29B-E0CB0FF00EB2}</Project>
+      <Name>HardwareSpringfield.AccesoDatos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HardwareSpringfield.Entidades\HardwareSpringfield.Entidades.csproj">
+      <Project>{11AB1FC9-17B8-410A-8F8E-60EC5F257DE2}</Project>
+      <Name>HardwareSpringfield.Entidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

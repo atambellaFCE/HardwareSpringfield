@@ -12,9 +12,10 @@ namespace HardwareSpringfield.AccesoDatos
 {
     class ProveedorDatos
     {
+        private int Registro = 889454;
         public List<Proveedor> TraerTodos()
         {
-            string json2 = WebHelper.Get("proveedores"); // trae un texto en formato json de una web
+            string json2 = WebHelper.Get("VentaHardware/Proveedores/" + Registro); // trae un texto en formato json de una web
             List<Proveedor> resultado = MapList(json2);
             return resultado;
         }
@@ -55,7 +56,7 @@ namespace HardwareSpringfield.AccesoDatos
         private NameValueCollection ReverseMap(Proveedor proveedor)
         {
             NameValueCollection n = new NameValueCollection();
-            n.Add("id", proveedor.Codigo.ToString());
+            n.Add("id", proveedor.Id.ToString());
             n.Add("Nombre", proveedor.Nombre);
             n.Add("Apellido", proveedor.Apellido);
             n.Add("Email", proveedor.Email);

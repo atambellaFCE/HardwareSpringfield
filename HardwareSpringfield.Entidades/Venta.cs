@@ -9,25 +9,36 @@ namespace HardwareSpringfield.Entidades
     public class Venta
     {
         // ATRIBUTOS     
-        private int _codigo;
-        private DateTime _fechaDeVenta;
-        private int _monto;
-        private List<Producto> _productos;
+        private int _id;
+        private DateTime _fechaAlta;      
+        private Cliente _cliente;
+        private Producto _producto;
+        private int _cantidad;
+        private int _usuario;
+        private int _estado;
+
         //CLIENTE
 
         // PROPIEDADES      
-        public int Codigo { get => _codigo; set => _codigo = value; }
-        public DateTime FechaDeVenta { get => _fechaDeVenta; set => _fechaDeVenta = value; }
-        public int Monto { get => _monto; set => _monto = value; }
-        public List<Producto> Productos { get => _productos; set => _productos = value; }
+        public int Id { get => _id; set => _id = value; }
+        public DateTime FechaAlta { get => _fechaAlta; set => _fechaAlta = value; }
+        public Cliente Cliente{ get => _cliente; set => _cliente = value; }
+        public Producto Producto { get => _producto; set => _producto = value; }
+        public int Cantidad { get => _cantidad; set => _cantidad = value; }
+        public int Usuario { get => _usuario; set => _usuario = value; }
+        public int Estado { get => _estado; set => _estado = value; }
 
         // CONSTRUCTOR
-        public Venta(int codigo, DateTime fechaDeVenta, int monto)
+        public Venta(Cliente cliente, Producto producto, int cantidad)
         {
-            Codigo = codigo;
-            FechaDeVenta = fechaDeVenta;
-            Monto = monto;
-            Productos = new List<Producto>();
+            Id = 1;
+            FechaAlta = DateTime.Now;
+            Cliente = cliente;
+            Producto = producto;
+            Cantidad = cantidad;
+            Usuario = 889454;
+            Estado = 1;
         }
+
     }
 }

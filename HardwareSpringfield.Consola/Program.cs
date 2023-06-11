@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HardwareSpringfield.Entidades;
+using HardwareSpringfield.Negocio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +15,9 @@ namespace HardwareSpringfield.Consola
         {
             Console.WriteLine("Hola Mundo,");
 
+            ClienteNegocio clienteNegocio = new ClienteNegocio();
+            List<Cliente> clientes = clienteNegocio.TraerClientes();
+            Console.WriteLine(clientes);
             Thread.Sleep(2500);
         }
     }

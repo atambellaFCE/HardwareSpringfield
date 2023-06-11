@@ -15,7 +15,7 @@ namespace HardwareSpringfield.AccesoDatos
     {
         public List<Cliente> TraerTodos()
         {
-            string json2 = WebHelper.Get("cliente"); // trae un texto en formato json de una web
+            string json2 = WebHelper.Get("/cliente"); // trae un texto en formato json de una web
             List<Cliente> resultado = MapList(json2);
             return resultado;
         }
