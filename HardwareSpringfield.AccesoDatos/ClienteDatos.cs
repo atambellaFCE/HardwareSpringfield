@@ -70,7 +70,7 @@ namespace HardwareSpringfield.AccesoDatos
         private NameValueCollection ReverseMap(Cliente cliente)
         {
             NameValueCollection n = new NameValueCollection();
-            n.Add("id", cliente.Codigo.ToString());
+            n.Add("id", cliente.id.ToString());
             n.Add("Nombre", cliente.Nombre);
             n.Add("Apellido", cliente.Apellido);                
             n.Add("Email", cliente.Email);
