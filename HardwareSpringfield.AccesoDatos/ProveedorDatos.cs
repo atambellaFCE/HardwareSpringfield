@@ -10,12 +10,11 @@ using System.Threading.Tasks;
 
 namespace HardwareSpringfield.AccesoDatos
 {
-    class ProveedorDatos
+    class ProveedorDatos : BaseDatos
     {
-        private int Registro = 889454;
         public List<Proveedor> TraerTodos()
         {
-            string json2 = WebHelper.Get("VentaHardware/Proveedores/" + Registro); // trae un texto en formato json de una web
+            string json2 = WebHelper.Get("VentaHardware/Proveedores/" + Registro.ToString()); // trae un texto en formato json de una web
             List<Proveedor> resultado = MapList(json2);
             return resultado;
         }
@@ -36,7 +35,7 @@ namespace HardwareSpringfield.AccesoDatos
         {
             NameValueCollection obj = ReverseMap(proveedor); //serializacion -> json
 
-            string json = WebHelper.Post("proveedores", obj);
+            string json = WebHelper.Post("VentaHardware/Proveedores", obj);
 
             TransactionResult lst = JsonConvert.DeserializeObject<TransactionResult>(json);
 
@@ -47,7 +46,7 @@ namespace HardwareSpringfield.AccesoDatos
         {
             NameValueCollection obj = ReverseMap(proveedor);
 
-            string json = WebHelper.Put("proveedores", obj);
+            string json = WebHelper.Put("VentaHardware/Proveedores", obj);
 
             TransactionResult lst = JsonConvert.DeserializeObject<TransactionResult>(json);
 
@@ -61,7 +60,11 @@ namespace HardwareSpringfield.AccesoDatos
             n.Add("Apellido", proveedor.Apellido);
             n.Add("Email", proveedor.Email);
             n.Add("Cuit", proveedor.Cuit);
-            n.Add("Usuario", "889454");
+            n.Add("IdProducto", proveedor.IdProducto.ToString());
+            n.Add("FechaAlta", proveedor.FechaAlta.ToString("yyyy-MM-dd"));
+            n.Add("FechaBaja", proveedor.FechaBaja.ToString("yyyy-MM-dd"));
+            n.Add("Usuario", proveedor.Usuario.ToString());
+            n.Add("Activo", proveedor.Activo.ToString());
             return n;
         }
     }

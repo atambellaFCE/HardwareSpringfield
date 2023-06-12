@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace HardwareSpringfield.AccesoDatos
 {
-    class VentaDatos
+    class VentaDatos : BaseDatos
     {
         public List<Venta> TraerTodos()
         {
-            string ventas = WebHelper.Get("ventas");
+            string ventas = WebHelper.Get("VentaHardware/ventas/" + Registro.ToString());
             List<Venta> resultado = MapList(ventas);
             return resultado;
         }
@@ -54,9 +54,13 @@ namespace HardwareSpringfield.AccesoDatos
         private NameValueCollection ReverseMap(Venta venta)
         {
             NameValueCollection n = new NameValueCollection();
-            n.Add("id", venta.Codigo.ToString());
-            n.Add("FechaAlta", venta.FechaDeVenta.ToString("yyyy-MM-dd"));
-            n.Add("Usuario", "889454");
+            n.Add("Id", venta.Id.ToString());
+            n.Add("IdCliente", venta.Cliente.Id.ToString());
+            n.Add("IdProducto", venta.Producto.Id.ToString());
+            n.Add("Cantidad", venta.Cantidad.ToString());
+            n.Add("Estado", venta.Estado.ToString());
+            n.Add("FechaAlta", venta.FechaAlta.ToString("yyyy-MM-dd"));
+            n.Add("Usuario", venta.Usuario.ToString());
             return n;
         }
     }

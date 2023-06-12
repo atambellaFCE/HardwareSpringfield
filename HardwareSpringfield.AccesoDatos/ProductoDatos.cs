@@ -12,17 +12,17 @@ using System.Collections.Specialized;
 
 namespace HardwareSpringfield.AccesoDatos
 {
-    public class ProductoDatos
+    public class ProductoDatos : BaseDatos
     {
         public List <Producto> TraerTodos()
         {
-            string productos = WebHelper.Get("productos");
+            string productos = WebHelper.Get("VentaHardware/Productos/" + Registro.ToString());
             List<Producto> resultado = MapList(productos);
             return resultado;
         }
         public Producto Traer(int idProducto)
         {
-            string producto = WebHelper.Get("productos/" + idProducto.ToString());
+            string producto = WebHelper.Get("VentaHardware/Productos/" + idProducto.ToString());
             Producto resultado = MapObj(producto);            
             return resultado;
         }
@@ -42,7 +42,7 @@ namespace HardwareSpringfield.AccesoDatos
         {
             NameValueCollection obj = ReverseMap(producto);
 
-            string json = WebHelper.Post("productos", obj);
+            string json = WebHelper.Post("VentaHardware/Productos", obj);
 
             TransactionResult lst = JsonConvert.DeserializeObject<TransactionResult>(json);
 
@@ -53,7 +53,7 @@ namespace HardwareSpringfield.AccesoDatos
         {
             NameValueCollection obj = ReverseMap(producto);
 
-            string json = WebHelper.Put("productos", obj);
+            string json = WebHelper.Put("VentaHardware/Productos/", obj);
 
             TransactionResult lst = JsonConvert.DeserializeObject<TransactionResult>(json);
 
@@ -62,11 +62,14 @@ namespace HardwareSpringfield.AccesoDatos
         private NameValueCollection ReverseMap(Producto producto)
         {
             NameValueCollection n = new NameValueCollection();
-            n.Add("id", producto.Codigo.ToString());
-            n.Add("Nombre", producto.Descripcion);
+            n.Add("id", producto.Id.ToString());
+            n.Add("Nombre", producto.Nombre);
             n.Add("Stock", producto.Stock.ToString());
-            n.Add("Precio", producto.Precio.ToString());        
-            n.Add("Usuario", "889454");
+            n.Add("Precio", producto.Precio.ToString());
+            n.Add("IdProveedor", producto.Proveedor.Id.ToString());
+            n.Add("Usuario", producto.Usuario.ToString());
+            n.Add("IdCategoria", producto.IdCategoria.ToString());
+            n.Add("FechaAlta", producto.FechaAlta.ToString("yyyy-MM-dd"));
             return n;
         }
     }

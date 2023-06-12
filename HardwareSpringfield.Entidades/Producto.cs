@@ -16,6 +16,7 @@ namespace HardwareSpringfield.Entidades
         private Proveedor _proveedor;
         private int _usuario;
         private DateTime _fechaAlta;
+        private int _idCategoria;
 
 
 
@@ -27,6 +28,7 @@ namespace HardwareSpringfield.Entidades
         public Proveedor Proveedor { get => _proveedor; set => _proveedor = value; }
         public int Usuario { get => _usuario; set => _usuario = value; }
         public DateTime FechaAlta { get => _fechaAlta; set => _fechaAlta = value; }
+        public int IdCategoria { get => _idCategoria; set => _idCategoria = value; }
 
         // CONSTRUCTOR
         public Producto(string nombre, int stock, double precio, Proveedor proveedor)
@@ -38,6 +40,7 @@ namespace HardwareSpringfield.Entidades
             Proveedor = proveedor;
             FechaAlta = DateTime.Now;
             Usuario = 889454;
+            IdCategoria = 1;
 
         }
 

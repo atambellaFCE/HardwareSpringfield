@@ -13,28 +13,36 @@ namespace HardwareSpringfield.Entidades
         private string _direccion;
         private string _telefono;
         private DateTime _fechaNacimiento;
+        private string _host;
    
         // PROPIEDADES      
         public long Dni { get => _dni; set => _dni = value; }
         public string Direccion { get => _direccion; set => _direccion = value; }
         public string Telefono { get => _telefono; set => _telefono = value; }
         public DateTime FechaNacimiento { get => _fechaNacimiento; set => _fechaNacimiento = value; }
+        public string Host { get => _host; set => _host = value; }
 
         // CONSTRUCTOR
         public Cliente(string nombre, string apellido, string email, long dni, string direccion, string telefono, DateTime fechaNacimiento) : base(nombre, apellido, email)
         {
 
             Dni = dni;
-            Direccion = direccion;
-            Telefono = telefono;
-            FechaNacimiento = fechaNacimiento;
             Nombre = nombre;
             Apellido = apellido;
+            Direccion = direccion;
             Email = email;
+            Telefono = telefono;
+            FechaNacimiento = fechaNacimiento;
             FechaAlta = DateTime.Now;
-            Usuario = 889454;
             Activo = true;
+            Usuario = 889454;
+            Host = "";
             Id = 1;
+        }
+
+        public override string ToString()
+        {
+            return this.Id + ") " + this.Apellido + ", " + this.Nombre;
         }
 
     }

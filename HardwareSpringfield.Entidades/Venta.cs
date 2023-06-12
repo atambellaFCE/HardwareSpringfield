@@ -17,8 +17,6 @@ namespace HardwareSpringfield.Entidades
         private int _usuario;
         private int _estado;
 
-        //CLIENTE
-
         // PROPIEDADES      
         public int Id { get => _id; set => _id = value; }
         public DateTime FechaAlta { get => _fechaAlta; set => _fechaAlta = value; }
