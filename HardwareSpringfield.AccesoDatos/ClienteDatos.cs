@@ -11,18 +11,11 @@ using HardwareSpringfield.AccesoDatos.Utilidades;
 
 namespace HardwareSpringfield.AccesoDatos
 {
-    public class ClienteDatos
+    public class ClienteDatos : BaseDatos
     {
         public List<Cliente> TraerTodos()
         {
-            string json2 = WebHelper.Get("/cliente"); // trae un texto en formato json de una web
-            List<Cliente> resultado = MapList(json2);
-            return resultado;
-        }
-
-        public List<Cliente> Traer(int usuario)
-        {
-            string json2 = WebHelper.Get("cliente/" + usuario.ToString()); // trae un texto en formato json de una web
+            string json2 = WebHelper.Get("/cliente/" + Registro.ToString()); // trae un texto en formato json de una web
             List<Cliente> resultado = MapList(json2);
             return resultado;
         }
@@ -70,12 +63,18 @@ namespace HardwareSpringfield.AccesoDatos
         private NameValueCollection ReverseMap(Cliente cliente)
         {
             NameValueCollection n = new NameValueCollection();
-            n.Add("id", cliente.Codigo.ToString());
+            n.Add("id", cliente.Id.ToString());
+            n.Add("Dni", cliente.Dni.ToString());
             n.Add("Nombre", cliente.Nombre);
-            n.Add("Apellido", cliente.Apellido);                
+            n.Add("Apellido", cliente.Apellido);
+            n.Add("Direccion", cliente.Direccion);
             n.Add("Email", cliente.Email);
+            n.Add("Telefono", cliente.Telefono);
             n.Add("FechaNacimiento", cliente.FechaNacimiento.ToString("yyyy-MM-dd"));
-            n.Add("Usuario", "889454");
+            n.Add("FechaAlta", cliente.FechaAlta.ToString("yyyy-MM-dd"));
+            n.Add("Activo", cliente.Activo.ToString());
+            n.Add("Usuario", cliente.Usuario.ToString());
+            n.Add("Host", cliente.Host.ToString());
             return n;
         }
     }
