@@ -16,8 +16,12 @@ namespace HardwareSpringfield.Consola
             Console.WriteLine("Hola Mundo,");
 
             ClienteNegocio clienteNegocio = new ClienteNegocio();
+            clienteNegocio.crearCliente();
             List<Cliente> clientes = clienteNegocio.TraerClientes();
-            Console.WriteLine(clientes);
+            foreach (Cliente cliente in clientes)
+            {
+                Console.WriteLine(cliente);
+            }
             Thread.Sleep(2500);
         }
     }

@@ -40,5 +40,10 @@ namespace HardwareSpringfield.Entidades
             Id = 1;
         }
 
+        public override string ToString()
+        {
+            return this.Id + ") " + this.Apellido + ", " + this.Nombre;
+        }
+
     }
 }

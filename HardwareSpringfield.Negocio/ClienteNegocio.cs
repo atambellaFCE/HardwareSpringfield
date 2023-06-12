@@ -22,5 +22,12 @@ namespace HardwareSpringfield.Negocio
 
             return clientes;    
         }
+
+        public void crearCliente()
+        {
+            DateTime fechaNac = DateTime.Now;
+            Cliente cliente = new Cliente("Test", "Cliente 15", "esteEsUnEmailDeTest@test.com", 37123123, "calle falsa 333", "1123452345", fechaNac);
+            clienteDatos.Insertar(cliente);
+        }
     }
 }
