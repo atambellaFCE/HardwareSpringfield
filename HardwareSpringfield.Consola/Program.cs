@@ -11,7 +11,7 @@ namespace HardwareSpringfield.Consola
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             Console.WriteLine("Hola Mundo,");
 
@@ -23,84 +23,121 @@ namespace HardwareSpringfield.Consola
                 Console.WriteLine(cliente);
             }
             Thread.Sleep(2500);
+
+            Console.WriteLine("Bienvenido a SpringField - Venta de Hardware!\n");
+            MenuPrincipal();
+            Console.ReadKey();
         }
-
-        class Validaciones
-        {
-            private const string _errorDatosNoCargados = "Los datos aun no fueron cargados. Presione una tecla para volver";
-
-            public static string ErrorDatosNoCargados
+            public static void MenuPrincipal()
             {
-                get { return _errorDatosNoCargados; }
-            }
-            public static int PedirInt(string mensaje, int min, int max)
-            {
-                bool valido = false;
-                string mensError = "Debe ingresar un valor entre " + min + " y " + max;
+                Console.WriteLine("Menu principal");
+                Console.WriteLine("0 - Salir del sistema");
+                Console.WriteLine("1 - Menu Cliente");
+                Console.WriteLine("2 - Menu Productos");
+
                 int valor;
+                valor = Validaciones.PedirInt("\nSeleccione una opcion:", 0, 2);
+                Console.Clear();
                 do
                 {
-                    Console.WriteLine(mensaje);
-                    if (!int.TryParse(Console.ReadLine(), out valor))
+                    switch (valor)
                     {
-                        Console.WriteLine(mensError);
+                        case 0:
+                            Console.WriteLine("Muchas gracias por usar el sistema!!\nPresiona una tecla para salir");
+                            Console.ReadKey();
+                            Environment.Exit(0);
+                            break;
+                        case 1:
+                            MenuCliente();
+                            break;
+                        case 2:
+                            MenuProducto();
+                            break;
                     }
-                    else
-                    {
-                        if (valor < min || valor > max)
-                        {
-                            Console.WriteLine(mensError);
-                        }
-                        else
-                        {
-                            valido = true;
-                        }
-                    }
-                } while (!valido);
-                return valor;
+                } while (valor != 0);
             }
-            public static string PedirStr(string mensaje)
-            {
-                string valor;
-                do
-                {
-                    Console.WriteLine(mensaje);
-                    valor = Console.ReadLine();
-                    if (string.IsNullOrWhiteSpace(valor))
-                    {
-                        Console.WriteLine("Este campo no puede ser vacio");
-                    }
-                } while (string.IsNullOrWhiteSpace(valor));
 
-                return valor;
-            }
-            public static float PedirFloat(string mensaje, float min, float max)
+        public static void MenuCliente()
+        {
+            if (Cliente == null)
             {
-                bool valido = false;
-                string mensError = "Debe ingresar un valor entre " + min + " y " + max;
-                float valor;
-                do
-                {
-                    Console.WriteLine(mensaje);
-                    if (!float.TryParse(Console.ReadLine(), out valor))
-                    {
-                        Console.WriteLine(mensError);
-                    }
-                    else
-                    {
-                        if (valor < min || valor > max)
-                        {
-                            Console.WriteLine(mensError);
-                        }
-                        else
-                        {
-                            valido = true;
-                        }
-                    }
-                } while (!valido);
-                return valor;
+                Cliente = new Cliente();
+                //cliente.XXX = Validaciones.PedirInt("Por favor ingrese su numero:", 100000, 999999);
+                Console.Clear();
+            }
+            Console.WriteLine($"Usuario: Cliente - numero {jefe_De_Catedra.NroLegajo}\n");
+            Console.WriteLine("0 - Volver al menu principal");
+            Console.WriteLine("1 -");
+            Console.WriteLine("2 - l");
+            Console.WriteLine("3 -");
+            Console.WriteLine("4 -");
+
+            int valor;
+            valor = Validaciones.PedirInt("\nSeleccione una opcion:", 0, 4);
+            Console.Clear();
+            switch (valor)
+            {
+                case 0:
+                    MenuPrincipal();
+                    break;
+                case 1:
+                    //cliente.ListarDatos(DatosAlumnos);
+                    Console.Clear();
+                    break;
+                case 2:
+                    // jefe_De_Catedra.Cant(DatosAlumnos);
+                    Console.Clear();
+                    break;
+                case 3:
+                    //jefe_De_Catedra.EditarAlumno(DatosAlumnos);
+                    Console.Clear();
+                    break;
+                case 4:
+                    //jefe_De_Catedra.BuscarRegistro(DatosAlumnos);
+                    Console.Clear();
+                    break;
             }
         }
+            public static void MenuProducto()
+            {
+                if (Producto == null)
+                {
+                    Producto = new Producto();
+                    //cliente.XXX = Validaciones.PedirInt("Por favor ingrese su numero:", 100000, 999999);
+                    Console.Clear();
+                }
+                Console.WriteLine($"Usuario: Cliente - numero {jefe_De_Catedra.NroLegajo}\n");
+                Console.WriteLine("0 - Volver al menu principal");
+                Console.WriteLine("1 -");
+                Console.WriteLine("2 - l");
+                Console.WriteLine("3 -");
+                Console.WriteLine("4 -");
 
+                int valor;
+                valor = Validaciones.PedirInt("\nSeleccione una opcion:", 0, 4);
+                Console.Clear();
+                switch (valor)
+                {
+                    case 0:
+                        MenuPrincipal();
+                        break;
+                    case 1:
+                        //cliente.ListarDatos(DatosAlumnos);
+                        Console.Clear();
+                        break;
+                    case 2:
+                        // jefe_De_Catedra.Cant(DatosAlumnos);
+                        Console.Clear();
+                        break;
+                    case 3:
+                        //jefe_De_Catedra.EditarAlumno(DatosAlumnos);
+                        Console.Clear();
+                        break;
+                    case 4:
+                        //jefe_De_Catedra.BuscarRegistro(DatosAlumnos);
+                        Console.Clear();
+                        break;
+                }
+            }
+        }
     }
-}
