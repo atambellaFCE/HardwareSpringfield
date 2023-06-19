@@ -46,6 +46,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProductoNegocio.cs" />
     <Compile Include="ProveedorNegocio.cs" />
+    <Compile Include="ReportesNegocio.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HardwareSpringfield.AccesoDatos\HardwareSpringfield.AccesoDatos.csproj">
