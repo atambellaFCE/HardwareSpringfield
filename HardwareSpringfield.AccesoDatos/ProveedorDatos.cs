@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace HardwareSpringfield.AccesoDatos
 {
-    class ProveedorDatos : BaseDatos
+    public class ProveedorDatos : BaseDatos
     {
         public List<Proveedor> TraerTodos()
         {

@@ -3,11 +3,6 @@ namespace HardwareSpringfield.Consola
 {
 	public class Validaciones
 	{
-		public Validaciones()
-		{
-
-             class Validaciones
-        {
             private const string _errorDatosNoCargados = "Los datos aun no fueron cargados. Presione una tecla para volver";
 
             public static string ErrorDatosNoCargados

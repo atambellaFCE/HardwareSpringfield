@@ -15,10 +15,7 @@ namespace HardwareSpringfield.Consola
 
         public static void Main(string[] args)
         {
-            int usuario;
-
-            Console.WriteLine("Hola Mundo,");
-
+            Console.WriteLine("Bienvenido a SpringField - Venta de Hardware!\n");
 
             ClienteNegocio clienteNegocio = new ClienteNegocio();
             clienteNegocio.crearCliente();
@@ -27,9 +24,6 @@ namespace HardwareSpringfield.Consola
             {
                 Console.WriteLine(cliente);
             }
-            Thread.Sleep(2500);
-
-            Console.WriteLine("Bienvenido a SpringField - Venta de Hardware!\n");
 
             Console.ReadKey();
         }
@@ -40,8 +34,10 @@ namespace HardwareSpringfield.Consola
                 Console.WriteLine("0 - Salir del sistema");
                 Console.WriteLine("1 - Menu Cliente");
                 Console.WriteLine("2 - Menu Productos");
+                Console.WriteLine("1 - Menu Proveedores");
+                Console.WriteLine("2 - Menu Reportes Generados");
 
-                int valor;
+            int valor;
                 valor = Validaciones.PedirInt("\nSeleccione una opcion:", 0, 2);
                 Console.Clear();
                 do
@@ -65,7 +61,7 @@ namespace HardwareSpringfield.Consola
                         case 4:
                             MenuProveedores();
                             break;
-                        case 5;
+                        case 5:
                             MenuReportes();
                             break;
                     }
@@ -94,8 +90,8 @@ namespace HardwareSpringfield.Consola
                         MenuPrincipal();
                         break;
                     case 1:
-                        //Clientes.ListarClientes();
-                        Console.Clear();
+                    List<Cliente> clientes = ClienteNegocio.TraerClientes();
+                    Console.Clear();
                         break;
                     case 2:
                         //Clientes.ConsultarClientes();
@@ -111,12 +107,10 @@ namespace HardwareSpringfield.Consola
                     //cliente.XXX = Validaciones.PedirInt("Por favor ingrese su numero:", 100000, 999999);
                     Console.Clear();
                 }
-                Console.WriteLine($"Usuario: Cliente - numero {jefe_De_Catedra.NroLegajo}\n");
+              
                 Console.WriteLine("0 - Volver al menu principal");
-                Console.WriteLine("1 -");
-                Console.WriteLine("2 - l");
-                Console.WriteLine("3 -");
-                Console.WriteLine("4 -");
+                Console.WriteLine("1 - Ingresar Productos");
+                Console.WriteLine("2 - Consultar Productos");
 
                 int valor;
                 valor = Validaciones.PedirInt("\nSeleccione una opcion:", 0, 4);
@@ -141,16 +135,13 @@ namespace HardwareSpringfield.Consola
                 if (Proveedor == null)
                 {
                     Producto = new Producto();
-                    //cliente.XXX = Validaciones.PedirInt("Por favor ingrese su numero:", 100000, 999999);
                     Console.Clear();
                 }
-                Console.WriteLine($"Usuario: Cliente - numero \n");
+               
                 Console.WriteLine("0 - Volver al menu principal");
-                Console.WriteLine("1 -");
-                Console.WriteLine("2 - l");
-                Console.WriteLine("3 -");
-                Console.WriteLine("4 -");
-
+                Console.WriteLine("1 - Ingresar Proveedores");
+                Console.WriteLine("2 - Consultar Proveedores");
+           
                 int valor;
                 valor = Validaciones.PedirInt("\nSeleccione una opcion:", 0, 4);
                 Console.Clear();
@@ -164,56 +155,53 @@ namespace HardwareSpringfield.Consola
                         Console.Clear();
                         break;
                     case 2:
-                        //consultar Proveedores;
+                        //Consultar Proveedores;
                         Console.Clear();
                         break;
                 }
             }
 
-            public static void MenuVentas()
+        public static void MenuVentas()
         {
+            if (Venta == null)
             {
-                if (Venta == null)
-                {
-                    Venta = new Venta();
-                    //cliente.XXX = Validaciones.PedirInt("Por favor ingrese su numero:", 100000, 999999);
-                    Console.Clear();
-                }
-                Console.WriteLine($"Usuario: Cliente - numero \n");
-                Console.WriteLine("0 - Volver al menu principal");
-                Console.WriteLine("1 -");
-                Console.WriteLine("2 - l");
-
-                int valor;
-                valor = Validaciones.PedirInt("\nSeleccione una opcion:", 0, 4);
+                Venta = new Venta();
                 Console.Clear();
-                switch (valor)
-                {
-                    case 0:
-                        MenuPrincipal();
-                        break;
-                    case 1:
-                        //Ingresar Ventas;
-                        Console.Clear();
-                        break;
-                    case 2:
-                        // Consultar ventas;
-                        Console.Clear();
-                        break;
-                
+            }
+            Console.WriteLine("0 - Volver al menu principal");
+            Console.WriteLine("1 - Ingresar Ventas");
+            Console.WriteLine("2 - Consultar Ventas");
+
+            int valor;
+            valor = Validaciones.PedirInt("\nSeleccione una opcion:", 0, 4);
+            Console.Clear();
+            switch (valor)
+            {
+                case 0:
+                    MenuPrincipal();
+                    break;
+                case 1:
+                    //Ingresar Ventas;
+                    Console.Clear();
+                    break;
+                case 2:
+                    // Consultar ventas;
+                    Console.Clear();
+                    break;
+            }
+        }
+
             public static void MenuReportes()
             {
                 {
                     if (Venta == null)
                     {
                         Venta = new Venta();
-                        //cliente.XXX = Validaciones.PedirInt("Por favor ingrese su numero:", 100000, 999999);
                         Console.Clear();
                     }
-                    Console.WriteLine($"Usuario: Cliente - numero \n");
                     Console.WriteLine("0 - Volver al menu principal");
-                    Console.WriteLine("1 -");
-                    Console.WriteLine("2 - l");
+                    Console.WriteLine("1 - Obtener reporte de ventas por Cliente");
+                    Console.WriteLine("2 - Reporte Producto por Proveedor");
 
                     int valor;
                     valor = Validaciones.PedirInt("\nSeleccione una opcion:", 0, 4);
@@ -224,17 +212,16 @@ namespace HardwareSpringfield.Consola
                             MenuPrincipal();
                             break;
                         case 1:
-                            //Ingresar Ventas;
+                            //Reporte ventas por cliente;
                             Console.Clear();
                             break;
                         case 2:
-                            // Consultar ventas;
+                            //Reporte producto por proveedor;
                             Console.Clear();
                             break;
                     }
                 }
-
-
             }
+        }
     }
 }

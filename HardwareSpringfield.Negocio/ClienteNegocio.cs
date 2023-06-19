@@ -29,5 +29,13 @@ namespace HardwareSpringfield.Negocio
             Cliente cliente = new Cliente("Test", "Cliente 15", "esteEsUnEmailDeTest@test.com", 37123123, "calle falsa 333", "1123452345", fechaNac);
             clienteDatos.Insertar(cliente);
         }
+
+        public Cliente ObtenerClientePorId(int idCliente)
+        {
+            if (idCliente == 0) return null;
+
+            List<Cliente> clientes = TraerClientes();
+            return clientes.Find(cliente => cliente.Id == idCliente);
+        }
     }
 }
