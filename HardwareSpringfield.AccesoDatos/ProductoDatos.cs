@@ -20,12 +20,6 @@ namespace HardwareSpringfield.AccesoDatos
             List<Producto> resultado = MapList(productos);
             return resultado;
         }
-        public Producto Traer(int idProducto)
-        {
-            string producto = WebHelper.Get("VentaHardware/Productos/" + idProducto.ToString());
-            Producto resultado = MapObj(producto);            
-            return resultado;
-        }
 
         private List<Producto> MapList(string json)
         {
@@ -33,11 +27,6 @@ namespace HardwareSpringfield.AccesoDatos
             return listProductos;
         }
 
-        private Producto MapObj(string json)
-        {
-            Producto producto = JsonConvert.DeserializeObject<Producto>(json);
-            return producto;
-        }
         public TransactionResult Insertar(Producto producto)
         {
             NameValueCollection obj = ReverseMap(producto);
@@ -66,7 +55,7 @@ namespace HardwareSpringfield.AccesoDatos
             n.Add("Nombre", producto.Nombre);
             n.Add("Stock", producto.Stock.ToString());
             n.Add("Precio", producto.Precio.ToString());
-            n.Add("IdProveedor", producto.Proveedor.Id.ToString());
+            n.Add("IdProveedor", producto.IdProveedor.ToString());
             n.Add("Usuario", producto.Usuario.ToString());
             n.Add("IdCategoria", producto.IdCategoria.ToString());
             n.Add("FechaAlta", producto.FechaAlta.ToString("yyyy-MM-dd"));

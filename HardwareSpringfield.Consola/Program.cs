@@ -94,6 +94,8 @@ namespace HardwareSpringfield.Consola
                     break;
                 case 2:
                     MostrarClientes();
+                    Console.WriteLine("Presione una tecla para continuar");
+                    Console.ReadKey();
                     Console.Clear();
                     break;
             }
@@ -115,11 +117,13 @@ namespace HardwareSpringfield.Consola
                     MenuPrincipal();
                     break;
                 case 1:
-                    //Ingresar productos;
+                    IngresarProducto();
                     Console.Clear();
                     break;
                 case 2:
-                    //Consultar productos;
+                    MostrarProductos();
+                    Console.WriteLine("Presione una tecla para continuar");
+                    Console.ReadKey();
                     Console.Clear();
                     break;
             }
@@ -145,7 +149,9 @@ namespace HardwareSpringfield.Consola
                     Console.Clear();
                     break;
                 case 2:
-                    MostraProveedores();
+                    MostrarProveedores();
+                    Console.WriteLine("Presione una tecla para continuar");
+                    Console.ReadKey();
                     Console.Clear();
                     break;
             }
@@ -212,17 +218,51 @@ namespace HardwareSpringfield.Consola
             {
                 Console.WriteLine(cliente);
             }
-            Console.ReadKey();
         }
 
-        private static void MostraProveedores()
+        private static void MostrarProveedores()
         {
             List<Proveedor> proveedores = proveedorNegocio.TraerProveedores();
             foreach (Proveedor proveedor in proveedores)
             {
                 Console.WriteLine(proveedor);
             }
-            Console.ReadKey();
+        }
+
+        private static void MostrarProductos()
+        {
+            List<Producto> productos = productoNegocio.TraerProductos();
+            foreach (Producto producto in productos)
+            {
+                Console.WriteLine(producto);
+            }
+        }
+
+        private static void IngresarProducto()
+        {
+            String nombre = Validaciones.PedirStr("Ingrese un nombre para el producto:");
+            int stock = Validaciones.PedirInt("Ingrese el stock del producto:", 1, 9999);
+            float precio = Validaciones.PedirFloat("Ingrese el precio del producto:", 0.01F, 10000000000);
+            bool ingresar;
+            Console.Clear();
+            MostrarProveedores();
+            Proveedor proveedor = Validaciones.PedirProveedor("Ingrese el id del proveedor del producto de acuerdo al listado anterior:");
+
+            Producto producto = new Producto(nombre, stock, precio, proveedor.Id);
+            Console.Clear();
+            Console.WriteLine(producto);
+            ingresar = Validaciones.ConfirmarIngreso("Está a punto de ingresar el producto, está de acuerdo?");
+            if (ingresar)
+            {
+                productoNegocio.CrearProducto(producto);
+                Console.WriteLine("Producto ingresado correctamente! Pulse una tecla para continuar");
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.WriteLine("Ha decidido no ingresar el producto. Pulse una tecla para continuar");
+                Console.ReadKey();
+            }
         }
     }
 }

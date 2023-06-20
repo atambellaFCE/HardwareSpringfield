@@ -22,6 +22,7 @@ namespace HardwareSpringfield.Negocio
 
         public void crearProveedor()
         {
+
         }
 
         public Proveedor ObtenerProveedorPorId(int idProveedor)
