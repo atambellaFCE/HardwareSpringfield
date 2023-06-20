@@ -11,34 +11,39 @@ namespace HardwareSpringfield.Consola
 {
     class Program
     {
+        private static ClienteNegocio clienteNegocio;
+        private static ProveedorNegocio proveedorNegocio;
+        private static VentaNegocio ventaNegocio;
+        private static ReporteNegocio reporteNegocio;
+        private static ProductoNegocio productoNegocio;
 
 
         public static void Main(string[] args)
         {
+            clienteNegocio = new ClienteNegocio();
+            proveedorNegocio = new ProveedorNegocio();
+            ventaNegocio = new VentaNegocio();
+            reporteNegocio= new ReporteNegocio();
+            productoNegocio= new ProductoNegocio();
+
             Console.WriteLine("Bienvenido a SpringField - Venta de Hardware!\n");
 
-            ClienteNegocio clienteNegocio = new ClienteNegocio();
-            clienteNegocio.crearCliente();
-            List<Cliente> clientes = clienteNegocio.TraerClientes();
-            foreach (Cliente cliente in clientes)
-            {
-                Console.WriteLine(cliente);
-            }
+            MenuPrincipal();
 
-            Console.ReadKey();
         }
         public static void MenuPrincipal()
             {
 
-                Console.WriteLine("Menu principal");
-                Console.WriteLine("0 - Salir del sistema");
-                Console.WriteLine("1 - Menu Cliente");
-                Console.WriteLine("2 - Menu Productos");
-                Console.WriteLine("1 - Menu Proveedores");
-                Console.WriteLine("2 - Menu Reportes Generados");
+            Console.WriteLine("Menu principal");
+            Console.WriteLine("1 - Menu Cliente");
+            Console.WriteLine("2 - Menu Productos");
+            Console.WriteLine("3 - Menu Ventas");
+            Console.WriteLine("4 - Menu Proveedores");
+            Console.WriteLine("5 - Menu Reportes");
+            Console.WriteLine("0 - Salir del sistema");
 
             int valor;
-                valor = Validaciones.PedirInt("\nSeleccione una opcion:", 0, 2);
+                valor = Validaciones.PedirInt("\nSeleccione una opcion:", 0, 5);
                 Console.Clear();
                 do
                 {
@@ -68,109 +73,91 @@ namespace HardwareSpringfield.Consola
                 } while (valor != 0);
             }
 
-            public static void MenuCliente()
-            {
-                if (Cliente == null)
-                {
-                    Cliente = new Cliente();
-                    //cliente.XXX = Validaciones.PedirInt("Por favor ingrese su numero:", 100000, 999999);
-                    Console.Clear();
-                }
-                //Console.WriteLine($"Usuario: Cliente - numero {}\n");
-                Console.WriteLine("0 - Volver al menu principal");
-                Console.WriteLine("1 - Ingresar Cliente");
-                Console.WriteLine("2 - Consultar Clientes");
+        public static void MenuCliente()
+        {
+            Console.Clear();
+         
+            Console.WriteLine("1 - Ingresar Cliente");
+            Console.WriteLine("2 - Consultar Clientes");
+            Console.WriteLine("0 - Volver al menu principal");
 
-                int valor;
-                valor = Validaciones.PedirInt("\nSeleccione una opcion:", 0, 4);
-                Console.Clear();
-                switch (valor)
-                {
-                    case 0:
-                        MenuPrincipal();
-                        break;
-                    case 1:
-                    List<Cliente> clientes = ClienteNegocio.TraerClientes();
-                    Console.Clear();
-                        break;
-                    case 2:
-                        //Clientes.ConsultarClientes();
-                        Console.Clear();
-                        break;
-                }
-            }
-            public static void MenuProducto()
+            int valor;
+            valor = Validaciones.PedirInt("\nSeleccione una opcion:", 0, 4);
+            Console.Clear();
+            switch (valor)
             {
-                if (Producto == null)
-                {
-                    Producto = new Producto();
-                    //cliente.XXX = Validaciones.PedirInt("Por favor ingrese su numero:", 100000, 999999);
+                case 0:
+                    MenuPrincipal();
+                    break;
+                case 1:
+                    //clienteNegocio.IngresarCliente()
+                    break;
+                case 2:
+                    MostrarClientes();
                     Console.Clear();
-                }
-              
-                Console.WriteLine("0 - Volver al menu principal");
-                Console.WriteLine("1 - Ingresar Productos");
-                Console.WriteLine("2 - Consultar Productos");
+                    break;
+            }
+        }
+        public static void MenuProducto()
+        {
+            Console.Clear();
 
-                int valor;
-                valor = Validaciones.PedirInt("\nSeleccione una opcion:", 0, 4);
-                Console.Clear();
-                switch (valor)
-                {
-                    case 0:
-                        MenuPrincipal();
-                        break;
-                    case 1:
-                        //Ingresar productos;
-                        Console.Clear();
-                        break;
-                    case 2:
-                        //Consultar productos;
-                        Console.Clear();
-                        break;
-                }
-            }
-            public static void MenuProveedores()
+            Console.WriteLine("1 - Ingresar Productos");
+            Console.WriteLine("2 - Consultar Productos");
+            Console.WriteLine("0 - Volver al menu principal");
+
+            int valor;
+            valor = Validaciones.PedirInt("\nSeleccione una opcion:", 0, 4);
+            Console.Clear();
+            switch (valor)
             {
-                if (Proveedor == null)
-                {
-                    Producto = new Producto();
+                case 0:
+                    MenuPrincipal();
+                    break;
+                case 1:
+                    //Ingresar productos;
                     Console.Clear();
-                }
-               
-                Console.WriteLine("0 - Volver al menu principal");
-                Console.WriteLine("1 - Ingresar Proveedores");
-                Console.WriteLine("2 - Consultar Proveedores");
+                    break;
+                case 2:
+                    //Consultar productos;
+                    Console.Clear();
+                    break;
+            }
+        }
+        public static void MenuProveedores()
+        {
+            Console.Clear();
+                
+            Console.WriteLine("1 - Ingresar Proveedores");
+            Console.WriteLine("2 - Consultar Proveedores");
+            Console.WriteLine("0 - Volver al menu principal");
            
-                int valor;
-                valor = Validaciones.PedirInt("\nSeleccione una opcion:", 0, 4);
-                Console.Clear();
-                switch (valor)
-                {
-                    case 0:
-                        MenuPrincipal();
-                        break;
-                    case 1:
-                        //Ingresar Proveedores;
-                        Console.Clear();
-                        break;
-                    case 2:
-                        //Consultar Proveedores;
-                        Console.Clear();
-                        break;
-                }
+            int valor;
+            valor = Validaciones.PedirInt("\nSeleccione una opcion:", 0, 4);
+            Console.Clear();
+            switch (valor)
+            {
+                case 0:
+                    MenuPrincipal();
+                    break;
+                case 1:
+                    //Ingresar Proveedores;
+                    Console.Clear();
+                    break;
+                case 2:
+                    MostraProveedores();
+                    Console.Clear();
+                    break;
             }
+        }
 
         public static void MenuVentas()
         {
-            if (Venta == null)
-            {
-                Venta = new Venta();
-                Console.Clear();
-            }
-            Console.WriteLine("0 - Volver al menu principal");
-            Console.WriteLine("1 - Ingresar Ventas");
+            Console.Clear();
+
+            Console.WriteLine("1 - Ingresar Venta");
             Console.WriteLine("2 - Consultar Ventas");
+            Console.WriteLine("0 - Volver al menu principal");
 
             int valor;
             valor = Validaciones.PedirInt("\nSeleccione una opcion:", 0, 4);
@@ -191,37 +178,51 @@ namespace HardwareSpringfield.Consola
             }
         }
 
-            public static void MenuReportes()
-            {
-                {
-                    if (Venta == null)
-                    {
-                        Venta = new Venta();
-                        Console.Clear();
-                    }
-                    Console.WriteLine("0 - Volver al menu principal");
-                    Console.WriteLine("1 - Obtener reporte de ventas por Cliente");
-                    Console.WriteLine("2 - Reporte Producto por Proveedor");
+        public static void MenuReportes()
+        {
+            Console.Clear();
+            Console.WriteLine("1 - Obtener reporte de ventas por Cliente");
+            Console.WriteLine("2 - Reporte Producto por Proveedor");
+            Console.WriteLine("0 - Volver al menu principal");
 
-                    int valor;
-                    valor = Validaciones.PedirInt("\nSeleccione una opcion:", 0, 4);
+            int valor;
+            valor = Validaciones.PedirInt("\nSeleccione una opcion:", 0, 4);
+            Console.Clear();
+            switch (valor)
+            {
+                case 0:
+                    MenuPrincipal();
+                    break;
+                case 1:
+                    //Reporte ventas por cliente;
                     Console.Clear();
-                    switch (valor)
-                    {
-                        case 0:
-                            MenuPrincipal();
-                            break;
-                        case 1:
-                            //Reporte ventas por cliente;
-                            Console.Clear();
-                            break;
-                        case 2:
-                            //Reporte producto por proveedor;
-                            Console.Clear();
-                            break;
-                    }
-                }
+                    break;
+                case 2:
+                    //Reporte producto por proveedor;
+                    Console.Clear();
+                    break;
             }
+            
+        }
+
+        private static void MostrarClientes()
+        {
+            List<Cliente> clientes = clienteNegocio.TraerClientes();
+            foreach (Cliente cliente in clientes)
+            {
+                Console.WriteLine(cliente);
+            }
+            Console.ReadKey();
+        }
+
+        private static void MostraProveedores()
+        {
+            List<Proveedor> proveedores = proveedorNegocio.TraerProveedores();
+            foreach (Proveedor proveedor in proveedores)
+            {
+                Console.WriteLine(proveedor);
+            }
+            Console.ReadKey();
         }
     }
 }

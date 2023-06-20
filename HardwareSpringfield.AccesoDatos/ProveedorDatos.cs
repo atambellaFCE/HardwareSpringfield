@@ -62,7 +62,6 @@ namespace HardwareSpringfield.AccesoDatos
             n.Add("Cuit", proveedor.Cuit);
             n.Add("IdProducto", proveedor.IdProducto.ToString());
             n.Add("FechaAlta", proveedor.FechaAlta.ToString("yyyy-MM-dd"));
-            n.Add("FechaBaja", proveedor.FechaBaja.ToString("yyyy-MM-dd"));
             n.Add("Usuario", proveedor.Usuario.ToString());
             n.Add("Activo", proveedor.Activo.ToString());
             return n;

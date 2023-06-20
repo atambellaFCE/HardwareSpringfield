@@ -1,9 +1,9 @@
 ﻿using System;
 namespace HardwareSpringfield.Negocio
 {
-    public class ReportesNegocio
+    public class ReporteNegocio
     {
-        public ReporteServicio()
+        public ReporteNegocio()
         {
             _clienteServicio = new ClienteNegocio();
             _productoServicio = new ProductoNegocio();
@@ -23,7 +23,7 @@ namespace HardwareSpringfield.Negocio
         /// Devuelve un reporte de todas las ventas correspondientes al TP, clasificadas en base al cliente que las
         /// realizo.
         /// </summary>
-
+        /*
         public List<ReporteVentasCliente> ObtenerReporteVentasPorCliente()
         {
             List<Cliente> clientes = _clienteServicio.ObtenerClientes();
@@ -42,7 +42,7 @@ namespace HardwareSpringfield.Negocio
             }
 
             return reporteVentasPorCliente;
-        }
+        }*/
     }
 }
 
