@@ -1,20 +1,14 @@
 ﻿using HardwareSpringfield.AccesoDatos.Utilidades;
 using HardwareSpringfield.Entidades;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Collections.Specialized;
 
 namespace HardwareSpringfield.AccesoDatos
 {
     public class ProductoDatos : BaseDatos
     {
-        public List <Producto> TraerTodos()
+        public List<Producto> TraerTodos()
         {
             string productos = WebHelper.Get("VentaHardware/Productos/" + Registro.ToString());
             List<Producto> resultado = MapList(productos);
@@ -23,7 +17,7 @@ namespace HardwareSpringfield.AccesoDatos
 
         private List<Producto> MapList(string json)
         {
-            List<Producto> listProductos= JsonConvert.DeserializeObject<List<Producto>>(json); 
+            List<Producto> listProductos = JsonConvert.DeserializeObject<List<Producto>>(json);
             return listProductos;
         }
 

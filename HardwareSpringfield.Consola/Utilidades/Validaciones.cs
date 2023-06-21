@@ -6,8 +6,8 @@ using System.Text.RegularExpressions;
 
 namespace HardwareSpringfield.Consola
 {
-	public class Validaciones
-	{
+    public class Validaciones
+    {
         private const string _errorDatosNoCargados = "Los datos aun no fueron cargados. Presione una tecla para volver";
         public static string ErrorDatosNoCargados
         {
@@ -59,17 +59,17 @@ namespace HardwareSpringfield.Consola
         public static string PedirEmail(string mensaje)
         {
             string valor;
-           
+
             do
             {
                 Console.WriteLine(mensaje);
                 valor = Console.ReadLine();
-                
+
                 if (!emailValido(valor))
                 {
                     Console.WriteLine("Ingrese un email válido");
                 }
-                
+
             } while (!emailValido(valor));
 
             return valor;
@@ -160,12 +160,76 @@ namespace HardwareSpringfield.Consola
             return proveedor;
         }
 
-        public static bool ConfirmarIngreso(string mensaje)
+        public static Cliente PedirCliente(string mensaje)
+        {
+            ClienteNegocio clienteNegocio = new ClienteNegocio();
+            List<Cliente> clientes = clienteNegocio.TraerClientes();
+            Cliente cliente = null;
+
+            bool valido = false;
+            int valor;
+            string mensError = "Debe ingresar un número de id válido";
+            do
+            {
+                Console.WriteLine(mensaje);
+                if (!int.TryParse(Console.ReadLine(), out valor))
+                {
+                    Console.WriteLine(mensError);
+                }
+                else
+                {
+                    cliente = clientes.Find(c => c.Id == valor);
+                    if (cliente == null)
+                    {
+                        Console.WriteLine(mensError);
+                    }
+                    else
+                    {
+                        valido = true;
+                    }
+                }
+            } while (!valido);
+            return cliente;
+        }
+
+        public static Producto PedirProducto(string mensaje)
+        {
+            ProductoNegocio productoNegocio = new ProductoNegocio();
+            List<Producto> productos = productoNegocio.TraerProductos();
+            Producto producto = null;
+
+            bool valido = false;
+            int valor;
+            string mensError = "Debe ingresar un número de id válido";
+            do
+            {
+                Console.WriteLine(mensaje);
+                if (!int.TryParse(Console.ReadLine(), out valor))
+                {
+                    Console.WriteLine(mensError);
+                }
+                else
+                {
+                    producto = productos.Find(p => p.Id == valor);
+                    if (producto == null)
+                    {
+                        Console.WriteLine(mensError);
+                    }
+                    else
+                    {
+                        valido = true;
+                    }
+                }
+            } while (!valido);
+            return producto;
+        }
+
+        public static bool ValidarSN(string mensaje)
         {
             bool valido = false;
             string valor;
             bool confirmado = false;
-            string indicaciones = "Debe ingresar S para confirmar y N para rechazar";
+            string indicaciones = "Debe ingresar \"S\" para confirmar y \"N\" para rechazar";
             do
             {
                 Console.WriteLine(mensaje);
@@ -174,18 +238,43 @@ namespace HardwareSpringfield.Consola
                 if (string.IsNullOrWhiteSpace(valor) || (valor != "S" && valor != "N"))
                 {
                     Console.WriteLine(indicaciones);
-                } else if (valor == "S")
+                }
+                else if (valor == "S")
                 {
                     confirmado = true;
                     valido = true;
-                }else
+                }
+                else
                 {
                     confirmado = false;
                     valido = true;
                 }
-                
+
             } while (!valido);
             return confirmado;
+        }
+
+        public static DateTime PedirFecha(string mensaje)
+        {
+            bool valido = false;
+            DateTime fecha;
+
+            do
+            {
+                string mensError = "Por favor ingrese una fecha en formato válido \"dd/mm/AAAA\"";
+
+                Console.WriteLine(mensaje);
+                if (!DateTime.TryParse(Console.ReadLine(), out fecha))
+                {
+                    Console.WriteLine(mensError);
+                }
+                else
+                {
+                    valido = true;
+                }
+            } while (!valido);
+
+            return fecha;
         }
 
         private static bool emailValido(string email)

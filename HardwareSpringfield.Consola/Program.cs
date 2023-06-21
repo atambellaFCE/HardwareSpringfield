@@ -2,10 +2,6 @@
 using HardwareSpringfield.Negocio;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace HardwareSpringfield.Consola
 {
@@ -23,8 +19,8 @@ namespace HardwareSpringfield.Consola
             clienteNegocio = new ClienteNegocio();
             proveedorNegocio = new ProveedorNegocio();
             ventaNegocio = new VentaNegocio();
-            reporteNegocio= new ReporteNegocio();
-            productoNegocio= new ProductoNegocio();
+            reporteNegocio = new ReporteNegocio();
+            productoNegocio = new ProductoNegocio();
 
             Console.WriteLine("Bienvenido a SpringField - Venta de Hardware!\n");
 
@@ -32,7 +28,7 @@ namespace HardwareSpringfield.Consola
 
         }
         public static void MenuPrincipal()
-            {
+        {
 
             Console.WriteLine("Menu principal");
             Console.WriteLine("1 - Menu Cliente");
@@ -43,40 +39,40 @@ namespace HardwareSpringfield.Consola
             Console.WriteLine("0 - Salir del sistema");
 
             int valor;
-                valor = Validaciones.PedirInt("\nSeleccione una opcion:", 0, 5);
-                Console.Clear();
-                do
+            valor = Validaciones.PedirInt("\nSeleccione una opcion:", 0, 5);
+            Console.Clear();
+            do
+            {
+                switch (valor)
                 {
-                    switch (valor)
-                    {
-                        case 0:
-                            Console.WriteLine("Muchas gracias por usar el sistema!!\nPresiona una tecla para salir");
-                            Console.ReadKey();
-                            Environment.Exit(0);
-                            break;
-                        case 1:
-                            MenuCliente();
-                            break;
-                        case 2:
-                            MenuProducto();
-                            break;
-                        case 3:
-                            MenuVentas();
-                            break;
-                        case 4:
-                            MenuProveedores();
-                            break;
-                        case 5:
-                            MenuReportes();
-                            break;
-                    }
-                } while (valor != 0);
-            }
+                    case 0:
+                        Console.WriteLine("Muchas gracias por usar el sistema!!\nPresiona una tecla para salir");
+                        Console.ReadKey();
+                        Environment.Exit(0);
+                        break;
+                    case 1:
+                        MenuCliente();
+                        break;
+                    case 2:
+                        MenuProducto();
+                        break;
+                    case 3:
+                        MenuVentas();
+                        break;
+                    case 4:
+                        MenuProveedores();
+                        break;
+                    case 5:
+                        MenuReportes();
+                        break;
+                }
+            } while (valor != 0);
+        }
 
         public static void MenuCliente()
         {
             Console.Clear();
-         
+
             Console.WriteLine("1 - Ingresar Cliente");
             Console.WriteLine("2 - Consultar Clientes");
             Console.WriteLine("0 - Volver al menu principal");
@@ -90,7 +86,7 @@ namespace HardwareSpringfield.Consola
                     MenuPrincipal();
                     break;
                 case 1:
-                    //clienteNegocio.IngresarCliente()
+                    IngresarCliente();
                     break;
                 case 2:
                     MostrarClientes();
@@ -131,11 +127,11 @@ namespace HardwareSpringfield.Consola
         public static void MenuProveedores()
         {
             Console.Clear();
-                
+
             Console.WriteLine("1 - Ingresar Proveedores");
             Console.WriteLine("2 - Consultar Proveedores");
             Console.WriteLine("0 - Volver al menu principal");
-           
+
             int valor;
             valor = Validaciones.PedirInt("\nSeleccione una opcion:", 0, 4);
             Console.Clear();
@@ -174,11 +170,13 @@ namespace HardwareSpringfield.Consola
                     MenuPrincipal();
                     break;
                 case 1:
-                    //Ingresar Ventas;
+                    IngresarVenta();
                     Console.Clear();
                     break;
                 case 2:
-                    // Consultar ventas;
+                    MostrarVentas();
+                    Console.WriteLine("Presione una tecla para continuar");
+                    Console.ReadKey();
                     Console.Clear();
                     break;
             }
@@ -208,7 +206,7 @@ namespace HardwareSpringfield.Consola
                     Console.Clear();
                     break;
             }
-            
+
         }
 
         private static void MostrarClientes()
@@ -238,6 +236,46 @@ namespace HardwareSpringfield.Consola
             }
         }
 
+        private static void MostrarVentas()
+        {
+            List<Venta> ventas= ventaNegocio.TraerVentas();
+            foreach (Venta venta in ventas)
+            {
+                Console.WriteLine(venta);
+            }
+        }
+
+        private static Cliente IngresarCliente()
+        {
+            string nombre = Validaciones.PedirStr("Ingrese un nombre para el cliente:");
+            string apellido = Validaciones.PedirStr("Ingrese un apellido para el cliente:");
+            long dni = Validaciones.PedirLong("Ingrese un DNI para el cliente", 1000000, 99999999);
+            string email = Validaciones.PedirEmail("Ingrese un email para el cliente");
+            string direccion = Validaciones.PedirStr("Ingrese una dirección para el cliente:");
+            string telefono = Validaciones.PedirStr("Ingrese un numero de teléfono para el cliente:"); ;
+            DateTime fechaNacimiento = Validaciones.PedirFecha("Ingrese la fecha de nacimiento del cliente en formato \"dd/mm/aaaa\"");
+            bool ingresar;
+
+            Cliente cliente = new Cliente(nombre, apellido, email, dni, direccion, telefono, fechaNacimiento);
+            Console.Clear();
+            Console.WriteLine(cliente.mostrarDatos());
+            ingresar = Validaciones.ValidarSN("Está a punto de ingresar el cliente, está de acuerdo?");
+            if (ingresar)
+            {
+                clienteNegocio.CrearCliente(cliente);
+                Console.WriteLine("Cliente ingresado correctamente! Pulse una tecla para continuar");
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.WriteLine("Ha decidido no ingresar el cliente. Pulse una tecla para continuar");
+                Console.ReadKey();
+                cliente = null;
+            }
+
+            return cliente;
+        }
+
         private static void IngresarProducto()
         {
             string nombre = Validaciones.PedirStr("Ingrese un nombre para el producto:");
@@ -251,7 +289,7 @@ namespace HardwareSpringfield.Consola
             Producto producto = new Producto(nombre, stock, precio, proveedor.Id);
             Console.Clear();
             Console.WriteLine(producto);
-            ingresar = Validaciones.ConfirmarIngreso("Está a punto de ingresar el producto, está de acuerdo?");
+            ingresar = Validaciones.ValidarSN("Está a punto de ingresar el producto, está de acuerdo?");
             if (ingresar)
             {
                 productoNegocio.CrearProducto(producto);
@@ -276,7 +314,7 @@ namespace HardwareSpringfield.Consola
             Proveedor proveedor = new Proveedor(nombre, apellido, email, cuit);
             Console.Clear();
             Console.WriteLine(proveedor);
-            ingresar = Validaciones.ConfirmarIngreso("Está a punto de ingresar el producto, está de acuerdo?");
+            ingresar = Validaciones.ValidarSN("Está a punto de ingresar el producto, está de acuerdo?");
             if (ingresar)
             {
                 try
@@ -284,7 +322,8 @@ namespace HardwareSpringfield.Consola
                     proveedorNegocio.crearProveedor(proveedor);
                     Console.WriteLine("Proveedor ingresado correctamente! Pulse una tecla para continuar");
                     Console.ReadKey();
-                } catch (Exception)
+                }
+                catch (Exception)
                 {
                     Console.WriteLine("Hubo un inconveniente ingresando el proveedor. Por favor intente nuevamente más tarde");
                 }
@@ -292,6 +331,51 @@ namespace HardwareSpringfield.Consola
             else
             {
                 Console.WriteLine("Ha decidido no ingresar el proveedor. Pulse una tecla para continuar");
+                Console.ReadKey();
+            }
+        }
+        private static void IngresarVenta()
+        {
+            bool ingresar;
+            Cliente cliente = null;
+            do
+            {
+                Console.Clear();
+                MostrarClientes();
+                ingresar = Validaciones.ValidarSN("¿Ya está cargado el cliente?");
+                if (ingresar)
+                {
+                    cliente = Validaciones.PedirCliente("Ingrese el id del cliente de acuerdo al listado anterior:");
+                }
+                else
+                {
+                    Console.Clear();
+                    cliente = IngresarCliente();
+                }
+
+            } while (cliente == null);
+
+            Console.Clear();
+            MostrarProductos();
+            Producto producto = Validaciones.PedirProducto("Ingrese el id del producto de acuerdo al listado anterior:");
+
+            int cantidad = Validaciones.PedirInt("Ingrese la cantidad de productos vendidos, recuerde que no puede ingresar un número mayor al stock: ", 0, producto.Stock);
+
+            Venta venta = new Venta(cliente.Id, producto.Id, cantidad);
+
+            Console.Clear();
+            Console.WriteLine("Producto: " + producto.Nombre + ", Cantidad: " + venta.Cantidad + ", Cliente: " + cliente.Nombre + " " + cliente.Apellido);
+            ingresar = Validaciones.ValidarSN("Está a punto de ingresar la venta, está de acuerdo?");
+            if (ingresar)
+            {
+                ventaNegocio.CrearVenta(venta);
+                productoNegocio.ActualizarStock(producto, venta.Cantidad);
+                Console.WriteLine("Venta ingresada correctamente! Pulse una tecla para continuar");
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.WriteLine("Ha decidido no ingresar la Venta. Pulse una tecla para continuar");
                 Console.ReadKey();
             }
         }

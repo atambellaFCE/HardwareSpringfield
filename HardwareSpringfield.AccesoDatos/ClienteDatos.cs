@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Newtonsoft.Json;
-using System.Collections.Specialized;
+﻿using HardwareSpringfield.AccesoDatos.Utilidades;
 using HardwareSpringfield.Entidades;
-using HardwareSpringfield.AccesoDatos.Utilidades;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Collections.Specialized;
 
 namespace HardwareSpringfield.AccesoDatos
 {

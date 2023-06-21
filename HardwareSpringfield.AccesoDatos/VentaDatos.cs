@@ -4,13 +4,10 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HardwareSpringfield.AccesoDatos
 {
-    class VentaDatos : BaseDatos
+    public class VentaDatos : BaseDatos
     {
         public List<Venta> TraerTodos()
         {
@@ -27,14 +24,14 @@ namespace HardwareSpringfield.AccesoDatos
 
         private Venta MapObj(string json)
         {
-            Venta venta= JsonConvert.DeserializeObject<Venta>(json);
+            Venta venta = JsonConvert.DeserializeObject<Venta>(json);
             return venta;
         }
         public TransactionResult Insertar(Venta venta)
         {
             NameValueCollection obj = ReverseMap(venta);
 
-            string json = WebHelper.Post("ventas", obj);
+            string json = WebHelper.Post("VentaHardware/ventas", obj);
 
             TransactionResult lst = JsonConvert.DeserializeObject<TransactionResult>(json);
 
@@ -55,8 +52,8 @@ namespace HardwareSpringfield.AccesoDatos
         {
             NameValueCollection n = new NameValueCollection();
             n.Add("Id", venta.Id.ToString());
-            n.Add("IdCliente", venta.Cliente.Id.ToString());
-            n.Add("IdProducto", venta.Producto.Id.ToString());
+            n.Add("IdCliente", venta.IdCliente.ToString());
+            n.Add("IdProducto", venta.IdProducto.ToString());
             n.Add("Cantidad", venta.Cantidad.ToString());
             n.Add("Estado", venta.Estado.ToString());
             n.Add("FechaAlta", venta.FechaAlta.ToString("yyyy-MM-dd"));

@@ -1,17 +1,16 @@
 ﻿using HardwareSpringfield.AccesoDatos;
 using HardwareSpringfield.Entidades;
-using System;
 using System.Collections.Generic;
 
 namespace HardwareSpringfield.Negocio
 {
-	public class ProveedorNegocio
-	{
+    public class ProveedorNegocio
+    {
         private ProveedorDatos proveedorDatos;
 
         public ProveedorNegocio()
         {
-           proveedorDatos = new ProveedorDatos();
+            proveedorDatos = new ProveedorDatos();
         }
         public List<Proveedor> TraerProveedores()
         {
@@ -32,7 +31,7 @@ namespace HardwareSpringfield.Negocio
                 return null;
             }
             List<Proveedor> proveedores = TraerProveedores();
-            return proveedores.Find(proveedor=> proveedor.Id == idProveedor);
+            return proveedores.Find(proveedor => proveedor.Id == idProveedor);
 
         }
     }

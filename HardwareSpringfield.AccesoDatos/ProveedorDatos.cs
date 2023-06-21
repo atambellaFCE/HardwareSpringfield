@@ -1,12 +1,8 @@
 ﻿using HardwareSpringfield.AccesoDatos.Utilidades;
 using HardwareSpringfield.Entidades;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HardwareSpringfield.AccesoDatos
 {
@@ -22,12 +18,6 @@ namespace HardwareSpringfield.AccesoDatos
         private List<Proveedor> MapList(string json)
         {
             List<Proveedor> lst = JsonConvert.DeserializeObject<List<Proveedor>>(json); // deserializacion
-            return lst;
-        }
-
-        private Proveedor MapObj(string json)
-        {
-            Proveedor lst = JsonConvert.DeserializeObject<Proveedor>(json); // deserializacion
             return lst;
         }
 

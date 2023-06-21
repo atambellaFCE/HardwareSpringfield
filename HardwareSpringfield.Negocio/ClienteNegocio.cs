@@ -2,9 +2,6 @@
 using HardwareSpringfield.Entidades;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HardwareSpringfield.Negocio
 {
@@ -20,13 +17,11 @@ namespace HardwareSpringfield.Negocio
         {
             List<Cliente> clientes = clienteDatos.TraerTodos();
 
-            return clientes;    
+            return clientes;
         }
 
-        public void crearCliente()
+        public void CrearCliente(Cliente cliente)
         {
-            DateTime fechaNac = DateTime.Now;
-            Cliente cliente = new Cliente("Test", "Cliente 15", "esteEsUnEmailDeTest@test.com", 37123123, "calle falsa 333", "1123452345", fechaNac);
             clienteDatos.Insertar(cliente);
         }
 

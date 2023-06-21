@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HardwareSpringfield.Entidades
 {
@@ -25,7 +21,7 @@ namespace HardwareSpringfield.Entidades
         public string Email { get => _email; set => _email = value; }
         public bool Activo { get => _activo; set => _activo = value; }
         public int Usuario { get => _usuario; set => _usuario = value; }
-        public DateTime FechaAlta{ get => _fechaAlta; set => _fechaAlta = value; }
+        public DateTime FechaAlta { get => _fechaAlta; set => _fechaAlta = value; }
 
 
         // CONSTRUCTOR
@@ -36,7 +32,7 @@ namespace HardwareSpringfield.Entidades
             Email = email;
             FechaAlta = DateTime.Now;
             Usuario = 889454;
-            Activo = true; 
+            Activo = true;
         }
     }
 }

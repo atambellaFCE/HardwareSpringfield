@@ -1,5 +1,4 @@
-﻿using System;
-namespace HardwareSpringfield.Negocio
+﻿namespace HardwareSpringfield.Negocio
 {
     public class ReporteNegocio
     {

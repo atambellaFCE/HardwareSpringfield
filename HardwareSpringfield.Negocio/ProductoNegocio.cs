@@ -5,8 +5,8 @@ using System.Collections.Generic;
 
 namespace HardwareSpringfield.Negocio
 {
-	public class ProductoNegocio
-	{
+    public class ProductoNegocio
+    {
         private ProductoDatos productoDatos;
 
         public ProductoNegocio()
@@ -15,7 +15,7 @@ namespace HardwareSpringfield.Negocio
         }
         public List<Producto> TraerProductos()
         {
-            List<Producto> productos= productoDatos.TraerTodos();
+            List<Producto> productos = productoDatos.TraerTodos();
 
             return productos;
         }
@@ -31,26 +31,23 @@ namespace HardwareSpringfield.Negocio
             {
                 return null;
             }
-            List<Producto> productos= TraerProductos();
+            List<Producto> productos = TraerProductos();
             return productos.Find(producto => producto.Id == idProducto);
 
         }
 
-        public void actualizarStock(int idProducto)
+        public void ActualizarStock(Producto producto, int cantidad)
         {
-            Producto producto = ObtenerProductoPorId(idProducto);
-            if (producto != null)
+            if (producto.Stock >= cantidad)
             {
-                if (producto.Stock > 0)
-                {
-                    producto.Stock--;
-                    productoDatos.Actualizar(producto);
-                } else
-                {
-                    throw new Exception("No hay más stock del producto que desea vender");
-                }
-
+                producto.Stock -= cantidad;
+                productoDatos.Actualizar(producto);
             }
+            else
+            {
+                throw new Exception("No hay más stock del producto que desea vender");
+            }
+           
         }
 
     }

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HardwareSpringfield.Entidades
 {
@@ -14,7 +10,7 @@ namespace HardwareSpringfield.Entidades
         private string _telefono;
         private DateTime _fechaNacimiento;
         private string _host;
-   
+
         // PROPIEDADES      
         public long Dni { get => _dni; set => _dni = value; }
         public string Direccion { get => _direccion; set => _direccion = value; }
@@ -43,6 +39,11 @@ namespace HardwareSpringfield.Entidades
         public override string ToString()
         {
             return this.Id + ") " + this.Apellido + ", " + this.Nombre;
+        }
+
+        public string mostrarDatos()
+        {
+            return this.Apellido + ", " + this.Nombre + " \nDNI: " + this.Dni + " \nFecha Nacimiento: " + this.FechaNacimiento + "\nEmail: " + this.Email + "\nTelefono: " + this.Telefono + "\nDirección: " + this.Direccion;
         }
 
     }
