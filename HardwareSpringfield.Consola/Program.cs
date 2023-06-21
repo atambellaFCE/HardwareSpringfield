@@ -198,11 +198,11 @@ namespace HardwareSpringfield.Consola
                     MenuPrincipal();
                     break;
                 case 1:
-                    //Reporte ventas por cliente;
+                    ReporteVentasPorCliente();
                     Console.Clear();
                     break;
                 case 2:
-                    //Reporte producto por proveedor;
+                    ReporteProductosPorProveedor();
                     Console.Clear();
                     break;
             }
@@ -376,6 +376,55 @@ namespace HardwareSpringfield.Consola
             else
             {
                 Console.WriteLine("Ha decidido no ingresar la Venta. Pulse una tecla para continuar");
+                Console.ReadKey();
+            }
+        }
+
+        public static void ReporteVentasPorCliente()
+        {
+            Console.Clear();
+            Console.WriteLine("Ingrese el id del cliente del que quiere obtener el reporte de ventas: ");
+            MostrarClientes();
+            Cliente cliente = Validaciones.PedirCliente("");
+            List<Venta> reporteVentas = reporteNegocio.ReporteVentasPorCliente(cliente.Id);
+            if (reporteVentas.Count == 0)
+            {
+                Console.WriteLine("El cliente seleccionado no posee ninguna venta. \n Presione una tecla para continuar");
+                Console.ReadKey();
+            } else
+            {
+                Console.Clear();    
+                Console.WriteLine("Ventas de " + cliente + ":");
+                foreach (Venta venta in reporteVentas)
+                {
+                    Console.WriteLine(" * " + venta);
+                }
+                Console.WriteLine("Presione una tecla para continuar");
+                Console.ReadKey();  
+            }
+        }
+
+        public static void ReporteProductosPorProveedor()
+        {
+            Console.Clear();
+            Console.WriteLine("Ingrese el id del proveedor del que quiere obtener el reporte de productos: ");
+            MostrarProveedores();
+            Proveedor proveedor = Validaciones.PedirProveedor("");
+            List<Producto> reporteProductos = reporteNegocio.ReporteProductosPorProveedor(proveedor.Id);
+            if (reporteProductos.Count == 0)
+            {
+                Console.WriteLine("El proveedor seleccionado no posee ningún Producto. \n Presione una tecla para continuar");
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Productos de " + proveedor+ ":");
+                foreach (Producto producto in reporteProductos)
+                {
+                    Console.WriteLine(" * " + producto);
+                }
+                Console.WriteLine("Presione una tecla para continuar");
                 Console.ReadKey();
             }
         }

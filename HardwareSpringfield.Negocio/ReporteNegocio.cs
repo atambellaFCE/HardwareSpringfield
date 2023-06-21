@@ -1,47 +1,40 @@
-﻿namespace HardwareSpringfield.Negocio
+﻿using HardwareSpringfield.Entidades;
+using System.Collections.Generic;
+
+namespace HardwareSpringfield.Negocio
 {
     public class ReporteNegocio
     {
+        private ClienteNegocio clienteServicio;
+        private ProductoNegocio productoServicio;
+        private VentaNegocio ventaServicio;
+        private ProveedorNegocio proveedorServicio;
+
         public ReporteNegocio()
         {
-            _clienteServicio = new ClienteNegocio();
-            _productoServicio = new ProductoNegocio();
-            _ventaServicio = new VentaNegocio();
-            _proveedorServicio = new ProveedorNegocio();
+            clienteServicio = new ClienteNegocio();
+            productoServicio = new ProductoNegocio();
+            ventaServicio = new VentaNegocio();
+            proveedorServicio = new ProveedorNegocio();
         }
 
-        // Atributos
-        private readonly ClienteNegocio _clienteServicio;
-        private readonly ProductoNegocio _productoServicio;
-        private readonly VentaNegocio _ventaServicio;
-        private readonly ProveedorNegocio _proveedorServicio;
-
-        // Metodos
-
-        /// <summary>
-        /// Devuelve un reporte de todas las ventas correspondientes al TP, clasificadas en base al cliente que las
-        /// realizo.
-        /// </summary>
-        /*
-        public List<ReporteVentasCliente> ObtenerReporteVentasPorCliente()
+        public List<Venta> ReporteVentasPorCliente(int idCliente)
         {
-            List<Cliente> clientes = _clienteServicio.ObtenerClientes();
-            List<Venta> ventas = _ventaServicio.ObtenerVentas();
-            List<Producto> productos = _productoServicio.ObtenerProductos();
-            List<ReporteVentasCliente> reporteVentasPorCliente = new List<ReporteVentasCliente>();
+            List<Venta> ventas = ventaServicio.TraerVentas();
 
-            foreach (Cliente cliente in clientes)
-            {
-                List<Venta> ventasAlCliente = ventas.FindAll(venta => venta.IdCliente == cliente.Id);
-                if (!ventasAlCliente.Any()) continue; // No incluir al Cliente en el Reporte si no tiene ventas asociadas.
+            List<Venta> reporteVentas = ventas.FindAll(v => v.IdCliente == idCliente);
+            
+            return reporteVentas;
+        }
 
-                List<VentaProductoHelper> productosVentasCliente = ReporteHelper.VincularVentasYProductos(ventasAlCliente, productos);
+        public List <Producto> ReporteProductosPorProveedor(int idProveedor)
+        {
+            List<Producto> productos = productoServicio.TraerProductos();
 
-                reporteVentasPorCliente.Add(new ReporteVentasCliente(productosVentasCliente, cliente));
-            }
+            List<Producto> reporteProductos = productos.FindAll(p => p.IdProveedor == idProveedor);
 
-            return reporteVentasPorCliente;
-        }*/
+            return reporteProductos;
+        }
     }
 }
 
