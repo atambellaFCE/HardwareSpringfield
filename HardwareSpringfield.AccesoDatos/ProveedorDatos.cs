@@ -59,7 +59,7 @@ namespace HardwareSpringfield.AccesoDatos
             n.Add("Nombre", proveedor.Nombre);
             n.Add("Apellido", proveedor.Apellido);
             n.Add("Email", proveedor.Email);
-            n.Add("Cuit", proveedor.Cuit);
+            n.Add("Cuit", proveedor.Cuit.ToString());
             n.Add("IdProducto", proveedor.IdProducto.ToString());
             n.Add("FechaAlta", proveedor.FechaAlta.ToString("yyyy-MM-dd"));
             n.Add("Usuario", proveedor.Usuario.ToString());

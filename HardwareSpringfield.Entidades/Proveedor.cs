@@ -10,18 +10,18 @@ namespace HardwareSpringfield.Entidades
     {
         // ATRIBUTOS     
         private List<Producto> _productos;
-        private string _cuit;
+        private long _cuit;
         private int _idProducto;
 
 
         // PROPIEDADES      
-        public string Cuit { get => _cuit; set => _cuit = value; }
+        public long Cuit { get => _cuit; set => _cuit = value; }
         public List<Producto> Productos { get => _productos; set => _productos = value; }
         public int IdProducto { get => _idProducto; set => _idProducto = value; }
 
 
         // CONSTRUCTOR
-        public Proveedor(string nombre, string apellido, string email, string cuit) : base(nombre, apellido, email)
+        public Proveedor(string nombre, string apellido, string email, long cuit) : base(nombre, apellido, email)
         {
             Nombre = nombre;
             Apellido = apellido;

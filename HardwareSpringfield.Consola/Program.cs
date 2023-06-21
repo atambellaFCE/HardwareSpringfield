@@ -145,7 +145,7 @@ namespace HardwareSpringfield.Consola
                     MenuPrincipal();
                     break;
                 case 1:
-                    //Ingresar Proveedores;
+                    IngresarProveedor();
                     Console.Clear();
                     break;
                 case 2:
@@ -240,7 +240,7 @@ namespace HardwareSpringfield.Consola
 
         private static void IngresarProducto()
         {
-            String nombre = Validaciones.PedirStr("Ingrese un nombre para el producto:");
+            string nombre = Validaciones.PedirStr("Ingrese un nombre para el producto:");
             int stock = Validaciones.PedirInt("Ingrese el stock del producto:", 1, 9999);
             float precio = Validaciones.PedirFloat("Ingrese el precio del producto:", 0.01F, 10000000000);
             bool ingresar;
@@ -261,6 +261,37 @@ namespace HardwareSpringfield.Consola
             else
             {
                 Console.WriteLine("Ha decidido no ingresar el producto. Pulse una tecla para continuar");
+                Console.ReadKey();
+            }
+        }
+
+        private static void IngresarProveedor()
+        {
+            bool ingresar;
+            string nombre = Validaciones.PedirStr("Ingrese un nombre para el proveedor:");
+            string apellido = Validaciones.PedirStr("Ingrese un apellido para el proveedor:");
+            string email = Validaciones.PedirEmail("Ingrese un email para el proveedor:");
+            long cuit = Validaciones.PedirLong("Ingrese el CUIT del proveedor sin guiones:", 10000000000, 99999999999);
+
+            Proveedor proveedor = new Proveedor(nombre, apellido, email, cuit);
+            Console.Clear();
+            Console.WriteLine(proveedor);
+            ingresar = Validaciones.ConfirmarIngreso("Está a punto de ingresar el producto, está de acuerdo?");
+            if (ingresar)
+            {
+                try
+                {
+                    proveedorNegocio.crearProveedor(proveedor);
+                    Console.WriteLine("Proveedor ingresado correctamente! Pulse una tecla para continuar");
+                    Console.ReadKey();
+                } catch (Exception)
+                {
+                    Console.WriteLine("Hubo un inconveniente ingresando el proveedor. Por favor intente nuevamente más tarde");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Ha decidido no ingresar el proveedor. Pulse una tecla para continuar");
                 Console.ReadKey();
             }
         }

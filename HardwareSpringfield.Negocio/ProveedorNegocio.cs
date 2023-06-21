@@ -20,9 +20,9 @@ namespace HardwareSpringfield.Negocio
             return proveedores;
         }
 
-        public void crearProveedor()
+        public void crearProveedor(Proveedor proveedor)
         {
-
+            proveedorDatos.Insertar(proveedor);
         }
 
         public Proveedor ObtenerProveedorPorId(int idProveedor)
