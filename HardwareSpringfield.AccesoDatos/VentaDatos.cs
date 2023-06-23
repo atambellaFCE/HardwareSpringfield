@@ -22,11 +22,6 @@ namespace HardwareSpringfield.AccesoDatos
             return listVentas;
         }
 
-        private Venta MapObj(string json)
-        {
-            Venta venta = JsonConvert.DeserializeObject<Venta>(json);
-            return venta;
-        }
         public TransactionResult Insertar(Venta venta)
         {
             NameValueCollection obj = ReverseMap(venta);

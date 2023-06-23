@@ -1,16 +1,3 @@
-C:/Users/aguma/Desktop/Nueva carpeta/HardwareSpringfield/HardwareSpringfield.Negocio/bin/Debug/HardwareSpringfield.Negocio.dll
-C:/Users/aguma/Desktop/Nueva carpeta/HardwareSpringfield/HardwareSpringfield.Negocio/bin/Debug/HardwareSpringfield.Negocio.pdb
-C:/Users/aguma/Desktop/Nueva carpeta/HardwareSpringfield/HardwareSpringfield.Negocio/obj/Debug/HardwareSpringfield.Negocio.csproj.AssemblyReference.cache
-C:/Users/aguma/Desktop/Nueva carpeta/HardwareSpringfield/HardwareSpringfield.Negocio/obj/Debug/HardwareSpringfield.Negocio.csproj.CoreCompileInputs.cache
-C:/Users/aguma/Desktop/Nueva carpeta/HardwareSpringfield/HardwareSpringfield.Negocio/obj/Debug/HardwareSpringfield.Negocio.dll
-C:/Users/aguma/Desktop/Nueva carpeta/HardwareSpringfield/HardwareSpringfield.Negocio/obj/Debug/HardwareSpringfield.Negocio.pdb
-C:/Users/aguma/Desktop/Nueva carpeta/HardwareSpringfield/HardwareSpringfield.Negocio/bin/Debug/HardwareSpringfield.AccesoDatos.dll
-C:/Users/aguma/Desktop/Nueva carpeta/HardwareSpringfield/HardwareSpringfield.Negocio/bin/Debug/HardwareSpringfield.Entidades.dll
-C:/Users/aguma/Desktop/Nueva carpeta/HardwareSpringfield/HardwareSpringfield.Negocio/bin/Debug/Newtonsoft.Json.dll
-C:/Users/aguma/Desktop/Nueva carpeta/HardwareSpringfield/HardwareSpringfield.Negocio/bin/Debug/HardwareSpringfield.AccesoDatos.pdb
-C:/Users/aguma/Desktop/Nueva carpeta/HardwareSpringfield/HardwareSpringfield.Negocio/bin/Debug/HardwareSpringfield.Entidades.pdb
-C:/Users/aguma/Desktop/Nueva carpeta/HardwareSpringfield/HardwareSpringfield.Negocio/bin/Debug/Newtonsoft.Json.xml
-C:/Users/aguma/Desktop/Nueva carpeta/HardwareSpringfield/HardwareSpringfield.Negocio/obj/Debug/HardwareSpringfield.Negocio.csproj.CopyComplete
 /Users/juanpabloprociuk/Documents/GitHub/HardwareSpringfield/HardwareSpringfield.Negocio/bin/Debug/HardwareSpringfield.Negocio.dll
 /Users/juanpabloprociuk/Documents/GitHub/HardwareSpringfield/HardwareSpringfield.Negocio/bin/Debug/HardwareSpringfield.Negocio.pdb
 /Users/juanpabloprociuk/Documents/GitHub/HardwareSpringfield/HardwareSpringfield.Negocio/bin/Debug/HardwareSpringfield.AccesoDatos.dll
@@ -24,3 +11,16 @@ C:/Users/aguma/Desktop/Nueva carpeta/HardwareSpringfield/HardwareSpringfield.Neg
 /Users/juanpabloprociuk/Documents/GitHub/HardwareSpringfield/HardwareSpringfield.Negocio/obj/Debug/HardwareSpringfield.Negocio.csproj.CopyComplete
 /Users/juanpabloprociuk/Documents/GitHub/HardwareSpringfield/HardwareSpringfield.Negocio/obj/Debug/HardwareSpringfield.Negocio.dll
 /Users/juanpabloprociuk/Documents/GitHub/HardwareSpringfield/HardwareSpringfield.Negocio/obj/Debug/HardwareSpringfield.Negocio.pdb
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.Negocio\obj\Debug\HardwareSpringfield.Negocio.csproj.AssemblyReference.cache
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.Negocio\obj\Debug\HardwareSpringfield.Negocio.csproj.CoreCompileInputs.cache
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.Negocio\obj\Debug\HardwareSpringfield.Negocio.dll
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.Negocio\obj\Debug\HardwareSpringfield.Negocio.pdb
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.Negocio\bin\Debug\HardwareSpringfield.Negocio.dll
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.Negocio\bin\Debug\HardwareSpringfield.Negocio.pdb
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.Negocio\bin\Debug\HardwareSpringfield.AccesoDatos.dll
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.Negocio\bin\Debug\HardwareSpringfield.Entidades.dll
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.Negocio\bin\Debug\Newtonsoft.Json.dll
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.Negocio\bin\Debug\HardwareSpringfield.AccesoDatos.pdb
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.Negocio\bin\Debug\HardwareSpringfield.Entidades.pdb
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.Negocio\bin\Debug\Newtonsoft.Json.xml
+C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.Negocio\obj\Debug\HardwareSpringfield.Negocio.csproj.CopyComplete

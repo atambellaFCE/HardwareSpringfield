@@ -6,7 +6,7 @@ namespace HardwareSpringfield.Negocio
 {
     public class VentaNegocio
     {
-        private VentaDatos ventaDatos;
+        private readonly VentaDatos ventaDatos;
 
         public VentaNegocio()
         {

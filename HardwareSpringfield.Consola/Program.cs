@@ -258,7 +258,7 @@ namespace HardwareSpringfield.Consola
 
             Cliente cliente = new Cliente(nombre, apellido, email, dni, direccion, telefono, fechaNacimiento);
             Console.Clear();
-            Console.WriteLine(cliente.mostrarDatos());
+            Console.WriteLine(cliente.MostrarDatos());
             ingresar = Validaciones.ValidarSN("Está a punto de ingresar el cliente, está de acuerdo?");
             if (ingresar)
             {
@@ -319,7 +319,7 @@ namespace HardwareSpringfield.Consola
             {
                 try
                 {
-                    proveedorNegocio.crearProveedor(proveedor);
+                    proveedorNegocio.CrearProveedor(proveedor);
                     Console.WriteLine("Proveedor ingresado correctamente! Pulse una tecla para continuar");
                     Console.ReadKey();
                 }
@@ -337,7 +337,7 @@ namespace HardwareSpringfield.Consola
         private static void IngresarVenta()
         {
             bool ingresar;
-            Cliente cliente = null;
+            Cliente cliente;
             do
             {
                 Console.Clear();

@@ -65,12 +65,12 @@ namespace HardwareSpringfield.Consola
                 Console.WriteLine(mensaje);
                 valor = Console.ReadLine();
 
-                if (!emailValido(valor))
+                if (!EmailValido(valor))
                 {
                     Console.WriteLine("Ingrese un email válido");
                 }
 
-            } while (!emailValido(valor));
+            } while (!EmailValido(valor));
 
             return valor;
         }
@@ -277,7 +277,7 @@ namespace HardwareSpringfield.Consola
             return fecha;
         }
 
-        private static bool emailValido(string email)
+        private static bool EmailValido(string email)
         {
             string patron = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
             return Regex.IsMatch(email, patron);

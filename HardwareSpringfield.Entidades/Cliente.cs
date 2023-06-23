@@ -41,7 +41,7 @@ namespace HardwareSpringfield.Entidades
             return this.Id + ") " + this.Apellido + ", " + this.Nombre;
         }
 
-        public string mostrarDatos()
+        public string MostrarDatos()
         {
             return this.Apellido + ", " + this.Nombre + " \nDNI: " + this.Dni + " \nFecha Nacimiento: " + this.FechaNacimiento + "\nEmail: " + this.Email + "\nTelefono: " + this.Telefono + "\nDirección: " + this.Direccion;
         }

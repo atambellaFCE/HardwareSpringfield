@@ -6,7 +6,7 @@ namespace HardwareSpringfield.Negocio
 {
     public class ProveedorNegocio
     {
-        private ProveedorDatos proveedorDatos;
+        private readonly ProveedorDatos proveedorDatos;
 
         public ProveedorNegocio()
         {
@@ -19,7 +19,7 @@ namespace HardwareSpringfield.Negocio
             return proveedores;
         }
 
-        public void crearProveedor(Proveedor proveedor)
+        public void CrearProveedor(Proveedor proveedor)
         {
             proveedorDatos.Insertar(proveedor);
         }

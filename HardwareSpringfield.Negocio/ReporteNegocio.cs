@@ -5,17 +5,13 @@ namespace HardwareSpringfield.Negocio
 {
     public class ReporteNegocio
     {
-        private ClienteNegocio clienteServicio;
-        private ProductoNegocio productoServicio;
-        private VentaNegocio ventaServicio;
-        private ProveedorNegocio proveedorServicio;
+        private readonly ProductoNegocio productoServicio;
+        private readonly VentaNegocio ventaServicio;
 
         public ReporteNegocio()
         {
-            clienteServicio = new ClienteNegocio();
             productoServicio = new ProductoNegocio();
             ventaServicio = new VentaNegocio();
-            proveedorServicio = new ProveedorNegocio();
         }
 
         public List<Venta> ReporteVentasPorCliente(int idCliente)

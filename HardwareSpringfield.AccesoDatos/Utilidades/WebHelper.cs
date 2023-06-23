@@ -7,8 +7,8 @@ namespace HardwareSpringfield.AccesoDatos.Utilidades
 {
     public static class WebHelper
     {
-        static WebClient client;
-        static string rutaBase;
+        static readonly WebClient client;
+        static readonly string rutaBase;
 
         static WebHelper()
         {
@@ -41,7 +41,7 @@ namespace HardwareSpringfield.AccesoDatos.Utilidades
 
                 return responseString;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return "{ \"isOk\":false,\"id\":-1,\"error\":\"Error en el llamado al servicio\"}";
             }
@@ -59,7 +59,7 @@ namespace HardwareSpringfield.AccesoDatos.Utilidades
 
                 return responseString;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return "{ \"isOk\":false,\"id\":-1,\"error\":\"Error en el llamado al servicio\"}";
             }
@@ -77,7 +77,7 @@ namespace HardwareSpringfield.AccesoDatos.Utilidades
 
                 return responseString;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return "{ \"isOk\":false,\"id\":-1,\"error\":\"Error en el llamado al servicio\"}";
             }
