@@ -23,5 +23,21 @@ namespace HardwareSpringfield.Negocio
         {
             ventaDatos.Insertar(venta);   
         }
+
+        public List<Venta> VentasPorProducto(int idProducto)
+        {
+            List<Venta> ventas = ventaDatos.TraerTodos();
+            List<Venta> ventasPorProducto = new List<Venta>();
+
+            foreach(Venta v in ventas)
+            {
+                if (v.IdProducto == idProducto)
+                {
+                    ventasPorProducto.Add(v);
+                }
+            }
+
+            return ventasPorProducto;
+        }
     }
 }

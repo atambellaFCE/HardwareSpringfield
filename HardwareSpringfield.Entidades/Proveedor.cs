@@ -37,5 +37,10 @@ namespace HardwareSpringfield.Entidades
         {
             return this.Id + ") " + this.Apellido + ", " + this.Nombre;
         }
+
+        public string MostrarDatos()
+        {
+            return this.Apellido + ", " + this.Nombre + " \nCUIT: " + this.Cuit  + "\nEmail: " + this.Email;
+        }
     }
 }

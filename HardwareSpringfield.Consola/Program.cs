@@ -75,10 +75,11 @@ namespace HardwareSpringfield.Consola
 
             Console.WriteLine("1 - Ingresar Cliente");
             Console.WriteLine("2 - Consultar Clientes");
+            Console.WriteLine("3 - Buscar Cliente");
             Console.WriteLine("0 - Volver al menu principal");
 
             int valor;
-            valor = Validaciones.PedirInt("\nSeleccione una opcion:", 0, 4);
+            valor = Validaciones.PedirInt("\nSeleccione una opcion:", 0, 3);
             Console.Clear();
             switch (valor)
             {
@@ -94,6 +95,12 @@ namespace HardwareSpringfield.Consola
                     Console.ReadKey();
                     Console.Clear();
                     break;
+                case 3:
+                    BuscarCliente();
+                    Console.WriteLine("Presione una tecla para continuar");
+                    Console.ReadKey();
+                    Console.Clear();
+                    break;
             }
         }
         public static void MenuProducto()
@@ -105,7 +112,7 @@ namespace HardwareSpringfield.Consola
             Console.WriteLine("0 - Volver al menu principal");
 
             int valor;
-            valor = Validaciones.PedirInt("\nSeleccione una opcion:", 0, 4);
+            valor = Validaciones.PedirInt("\nSeleccione una opcion:", 0, 2);
             Console.Clear();
             switch (valor)
             {
@@ -130,6 +137,8 @@ namespace HardwareSpringfield.Consola
 
             Console.WriteLine("1 - Ingresar Proveedores");
             Console.WriteLine("2 - Consultar Proveedores");
+            Console.WriteLine("3 - Consultar Proveedor por producto");
+            Console.WriteLine("4 - Buscar Proveedor");
             Console.WriteLine("0 - Volver al menu principal");
 
             int valor;
@@ -150,6 +159,19 @@ namespace HardwareSpringfield.Consola
                     Console.ReadKey();
                     Console.Clear();
                     break;
+                case 3:
+                    MostrarProductos();
+                    BuscarProveedorPorProducto();
+                    Console.WriteLine("Presione una tecla para continuar");
+                    Console.ReadKey();
+                    Console.Clear();
+                    break;
+                case 4:
+                    BuscarProveedor();
+                    Console.WriteLine("Presione una tecla para continuar");
+                    Console.ReadKey();
+                    Console.Clear();
+                    break;
             }
         }
 
@@ -159,10 +181,11 @@ namespace HardwareSpringfield.Consola
 
             Console.WriteLine("1 - Ingresar Venta");
             Console.WriteLine("2 - Consultar Ventas");
+            Console.WriteLine("3 - Consultar Ventas por producto");
             Console.WriteLine("0 - Volver al menu principal");
 
             int valor;
-            valor = Validaciones.PedirInt("\nSeleccione una opcion:", 0, 4);
+            valor = Validaciones.PedirInt("\nSeleccione una opcion:", 0, 3);
             Console.Clear();
             switch (valor)
             {
@@ -175,6 +198,12 @@ namespace HardwareSpringfield.Consola
                     break;
                 case 2:
                     MostrarVentas();
+                    Console.WriteLine("Presione una tecla para continuar");
+                    Console.ReadKey();
+                    Console.Clear();
+                    break;
+                case 3:
+                    MostrarVentasPorProducto();
                     Console.WriteLine("Presione una tecla para continuar");
                     Console.ReadKey();
                     Console.Clear();
@@ -242,6 +271,74 @@ namespace HardwareSpringfield.Consola
             foreach (Venta venta in ventas)
             {
                 Console.WriteLine(venta);
+            }
+        }
+
+        private static void BuscarCliente()
+        {
+            int idCliente = Validaciones.PedirInt("Ingrese el id del Cliente que desea buscar: ", 0, 9999);
+            Cliente cliente = clienteNegocio.ObtenerClientePorId(idCliente);
+
+            if (cliente == null)
+            {
+                Console.WriteLine("No se encontró un cliente con ese id.");
+            } else
+            {
+                Console.WriteLine(cliente.MostrarDatos());
+            }
+        }
+
+        private static void BuscarProveedor()
+        {
+            int idProveedor = Validaciones.PedirInt("Ingrese el id del Proveedor que desea buscar: ", 0, 9999);
+            Proveedor proveedor = proveedorNegocio.ObtenerProveedorPorId(idProveedor);
+
+            if (proveedor == null)
+            {
+                Console.WriteLine("No se encontró un proveedor con ese id.");
+            }
+            else
+            {
+                Console.WriteLine(proveedor.MostrarDatos());
+            }
+        }
+
+        private static void BuscarProveedorPorProducto()
+        {
+            int idProducto = Validaciones.PedirInt("\n" +
+                "Ingrese el id del producto para consultar su proveedor:", 0, 9999);
+            Producto producto = productoNegocio.ObtenerProductoPorId(idProducto);
+            if (producto != null)
+            {
+                Proveedor proveedor = proveedorNegocio.ObtenerProveedorPorId(producto.IdProveedor);
+                if (proveedor != null)
+                {
+                    Console.WriteLine(proveedor.MostrarDatos());
+                } else
+                {
+                    Console.WriteLine("No existe el proveedor del producto seleccionado.");
+                }
+            } else
+            {
+                Console.WriteLine("No existe el producto seleccionado.");
+            }
+          
+
+        }
+
+        private static void MostrarVentasPorProducto()
+        {
+            int idProducto = Validaciones.PedirInt("Ingrese el id del producto para consultar sus ventas:", 0, 9999);
+            List<Venta> ventasPorProducto = ventaNegocio.VentasPorProducto(idProducto);
+
+            if (ventasPorProducto.Count == 0) {
+                Console.WriteLine("No hubo ventas de este producto");
+            } else
+            {
+                foreach (Venta v in ventasPorProducto)
+                {
+                    Console.WriteLine(v);
+                }
             }
         }
 
