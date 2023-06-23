@@ -10,3 +10,8 @@ C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.Ent
 C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.Entidades\obj\Debug\HardwareSpringfield.Entidades.dll
 C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.Entidades\obj\Debug\HardwareSpringfield.Entidades.pdb
 C:\Users\aguma\Desktop\Nueva carpeta\HardwareSpringfield\HardwareSpringfield.Entidades\obj\Debug\HardwareSpringfield.Entidades.csproj.AssemblyReference.cache
+C:\Users\VS\Documents\GitHub\HardwareSpringfield\HardwareSpringfield.Entidades\bin\Debug\HardwareSpringfield.Entidades.dll
+C:\Users\VS\Documents\GitHub\HardwareSpringfield\HardwareSpringfield.Entidades\bin\Debug\HardwareSpringfield.Entidades.pdb
+C:\Users\VS\Documents\GitHub\HardwareSpringfield\HardwareSpringfield.Entidades\obj\Debug\HardwareSpringfield.Entidades.csproj.CoreCompileInputs.cache
+C:\Users\VS\Documents\GitHub\HardwareSpringfield\HardwareSpringfield.Entidades\obj\Debug\HardwareSpringfield.Entidades.dll
+C:\Users\VS\Documents\GitHub\HardwareSpringfield\HardwareSpringfield.Entidades\obj\Debug\HardwareSpringfield.Entidades.pdb
